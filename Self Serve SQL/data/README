@@ -1,0 +1,3 @@
+This folder is used to hold testing seed data.
+
+-- The Northwin db is from SQL Server 2000, very old and tiny db. You can easily set up a staging and a production db, to test the app's workflow.

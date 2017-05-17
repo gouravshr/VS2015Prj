@@ -1,0 +1,39 @@
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\iSql.Util.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\iSql.Util.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\EntityFramework.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\iSql.Commons.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\log4net.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\RabbitMQ.Client.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\RabbitMQ.ServiceModel.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\iSql.Commons.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\EntityFramework.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\bin\Debug\log4net.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\obj\Debug\iSql.Util.csprojResolveAssemblyReference.cache
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\obj\Debug\iSql.Util.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Util\obj\Debug\iSql.Util.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\iSql.Util.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\iSql.Util.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\log4net.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\RabbitMQ.Client.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\RabbitMQ.ServiceModel.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Debug\log4net.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.pdb
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\iSql.Util.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\iSql.Util.pdb
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\EntityFramework.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\iSql.Commons.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\log4net.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\RabbitMQ.Client.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\RabbitMQ.ServiceModel.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\iSql.Commons.pdb
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\EntityFramework.xml
+C:\MVCPractice\Self Serve SQL\iSql.Util\bin\Debug\log4net.xml
+C:\MVCPractice\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.csprojResolveAssemblyReference.cache
+C:\MVCPractice\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.dll
+C:\MVCPractice\Self Serve SQL\iSql.Util\obj\Debug\iSql.Util.pdb

@@ -1,0 +1,282 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace iSql.Commons {
+
+    /// <summary>
+    /// Keep reference of all states and their related descriptions, also make coding easier than typing literal strings. 
+    /// NOTE: we can user other options such as enum, directory, etc, but you need to bear with their limit as well, for instance, enum names cannot contains space, etc.
+    /// </summary>
+    public static class FlowState {
+
+        #region states definitions
+
+        //NOTE: we intentially make big gap between each stagaes, to simply our checking logic. We can use flag attribute and bit operations on enum, but it only support limited states.
+        //      Alterntively, you can also put it to db to simply some joins but you need to keep them in sync. It is tied to state engine code, so keep its definition in code.
+        //      How to guarantee the uniqueness of each state? The associate unit test solve it.
+        
+
+        // ----------------------------------------------------------
+        // special statge  < 10,000, some are borrowed from Http
+        // ----------------------------------------------------------
+        
+        /// <summary>
+        /// Normal workflow termination.
+        /// </summary>
+        public static State FlowTerminatedNormally          = new State( 200, "Workflow - finished");
+
+        /// <summary>
+        /// Workflow terminated on error. 
+        /// </summary>
+        public static State FlowTerminatedOnError          = new State( 500, "Workflow - terminated on error");
+        
+        /// <summary>
+        /// User can abort a request and terminate the workflow at any time.
+        /// </summary>
+        public static State FlowTerminatedByUserAbort                       = new State( 1200, "workflow - aborted by user");
+ 
+        // ----------------------------------------------------------
+        // init statge,  10,001 - 30,000
+        // ----------------------------------------------------------
+
+        /// <summary>
+        /// Ticket is initialized, but file upload may not started or not finished.
+        /// </summary>
+        public static State TicketInitialized       = new State( 10001 , "Ticket initialized");
+       
+        /// <summary>
+        /// File upload started. 
+        /// </summary>
+        public static State FileUploadStarted       = new State(10101, "File upload - started");
+
+        /// <summary>
+        /// File upload succeeded.
+        /// </summary>
+        public static State FileUploadSucceeded     = new State(10102, "File upload - succeeded");
+
+        /// <summary>
+        /// File upload failed, such as IO error, etc.
+        /// </summary>
+        public static State FileUploadFailed        = new State(10103, "File upload - failed");
+
+        /// <summary>
+        /// After creating a ticket, it requires project supervisor's approval
+        /// </summary>
+        public static State TicketWaitingForApproval = new State(10201, "Ticket - waiting for approval");
+
+        /// <summary>
+        /// Project supervisor approves the request
+        /// </summary>
+        public static State TicketApproved = new State(10202, "Ticket - approved");
+
+        /// <summary>
+        /// Project supervisor rejects the request
+        /// </summary>
+        public static State TicketRejected = new State(10203, "Ticket - rejected");
+
+        /// <summary>
+        /// Validation started, in case it is done in a async fashion.
+        /// </summary>
+        public static State ValidationStarted       = new State(10301, "Validation - started");
+
+        /// <summary>
+        /// Script validation passed for both target execution script and rollback script. 
+        /// </summary>
+        public static State ValidationSucceeded     = new State(10302, "Validation - succeeded");
+
+        /// <summary>
+        /// Either target or rollback script failed.
+        /// </summary>
+        public static State ValidationFailed        = new State(10303, "Validation - failed");
+
+        #region DBA overwrite states
+
+        // NOTE: R1.3 requires DBA has manual overwrite permission to mark scripts are valid and continue staging processing, 
+        //       even for scripts that failed on validators. 
+
+        /// <summary>
+        /// Wait for user's decision of kicking off DBA manual validation process or not.
+        /// </summary>
+        public static State DBAOverwriteWaitForDecision = new State(10501, "DBA manual validation - wait for decision");
+
+        /// <summary>
+        /// DBA manual validation request is sent, and wait for response.
+        /// </summary>
+        public static State DBAOverwriteRequested = new State(10502, "DBA manual validation - requested");
+
+        /// <summary>
+        /// DBA reviewed scripts and approved them, overwrite error status generated by automatical validators; now scripts are ready for 
+        /// normal processing flow.
+        /// </summary>
+        public static State DBAOverwriteApproved = new State(10503, "DBA manual validation - approved");
+
+        /// <summary>
+        /// DBA reviewed and rejected scripts, and think they are not approprite to execute for security or other reasons.
+        /// </summary>
+        public static State DBAOverwriteRejected = new State(10504, "DBA manual validation - rejected");
+
+        #endregion
+
+        // ----------------------------------------------------------
+        // staging statge,  30,001 - 50,000
+        // ----------------------------------------------------------
+        public static State StageWaitForPush    = new State(30001, "Stage ready - waiting for approval"); 
+
+        public static State StageExecutionStarted   = new State(30101, "Stage execution - started"); 
+        public static State StageExecutionSucceeded = new State(30102, "Stage execution - succeeded"); 
+        public static State StageExecutionFailed    = new State(30103, "Stage execution - failed"); 
+
+        public static State StageRollbackStarted    = new State(30201, "Stage rollback - started" );
+        public static State StageRollbackSucceeded  = new State(30202, "Stage rollback - succeeded" );
+        public static State StageRollbackFailed     = new State(30203, "Stage rollback - failed" );
+
+        public static State StageExecutionValidationWaiting    = new State(30301, "Stage validation - waiting");
+        public static State StageExecutionValidationConfirmed   = new State(30302, "Stage validation - confirmed");
+        public static State StageExecutionValidationRejected   = new State(30303, "Stage validation - rejected");
+
+        public static State StageRollbackOnRejectionStarted  = new State(30401, "Stage rollback on rejection - started");
+        public static State StageRollbackOnRejectionSucceeded  = new State(30402, "Stage rollback on rejection - succeeded");
+        public static State StageRollbackOnRejectionFailed  = new State(30403, "Stage rollback on rejection - failed");
+
+        // ----------------------------------------------------------
+        // produciton statge,  50,001 - 70,000
+        // ----------------------------------------------------------
+        public static State ProductWaitForPush = new State(50001, "Production execution - waiting");
+
+        public static State ProductExecutionStarted     = new State(50101, "Production execution - started");
+        public static State ProductExecutionSucceeded   = new State(50102, "Production execution - succeeded");
+        public static State ProductExecutionFailed      = new State(50103, "Production execution - failed");
+        public static State ProductExecutionCompletedWithError = new State(50104, "Production execution - completed with error");
+
+        public static State ProductRollbackStarted     = new State(50201, "Production rollback - started");
+        public static State ProductRollbackSucceeded   = new State(50202, "Production rollback - succeeded");
+        public static State ProductRollbackFailed      = new State(50203, "Production rollback - failed");
+
+        // we may want to distinguish the staging rollback at different stages, to make raw log filtering easier in the future
+        public static State StageRollbackOnProdStageStarted         = new State(50301, "Stage rollback after Production rollback - started");
+        public static State StageRollbackOnProdStageSucceeded = new State(50302, "Stage rollback after Production rollback - succeeded");
+        public static State StageRollbackOnProdStageFailed = new State(50303, "Stage rollback after Production rollback - failed");
+
+        public static State ProductExeuctionValidationWaiting      = new State(50401, "Production validation - waiting");
+        public static State ProductExecutionValidationApproved     = new State(50402, "Production validation - approved");
+        public static State ProductExecutionValidationRejected     = new State(50403, "Production validation - rejected");
+
+        #region prod roll back on validation error
+
+        public static State ProductRollbackOnProdRejectionStarted     = new State(50501, "Production rollback on rejection - started");
+        public static State ProductRollbackOnProdRejectionSucceeded = new State(50502, "Production rollback on rejection - succeeded");
+        public static State ProductRollbackOnProdRejectionFailed = new State(50503, "Production rollback on rejection - failed");
+
+        #endregion 
+        
+        #region prod roll back on validation error
+
+        public static State StagingRollbackOnProdRejectionStarted     = new State(50601, "Staging rollback on prod rejection - started");
+        public static State StagingRollbackOnProdRejectionSucceeded   = new State(50602, "Staging rollback on prod rejection - succeeded");
+        public static State StagingRollbackOnProdRejectionFailed      = new State(50603, "Staging rollback on prod rejection - failed");
+
+        #endregion 
+        
+        #endregion
+
+        #region check stages
+
+        public static bool IsInitStage( int code ) {
+            return code > 10000 & code <= 30000;
+        }
+
+        public  static  bool IsStagingStage (int code ) {
+            return code > 30000 && code <= 50000;
+        } 
+
+        public  static  bool IsProductionStage (int code ) {
+            return code > 50000 && code <= 70000;
+        }
+
+        public  static  bool IsSpeicalStage (int code ) {
+            return code  <= 10000;
+        }
+        #endregion
+
+
+        #region exporting to sql
+
+        //NOTE: per latest requirements of audit/reporting needs, we need to provide a lookup talbe in db to allow DBAs to generate reports based on status code. 
+
+        public static string GenLookUpTableSql( bool createTable = false) {
+            StringBuilder sb = new StringBuilder();
+           
+            // NOTE: follow the convention, name it FlowStates '
+            if(createTable) {
+                sb.Append(
+                    @"
+CREATE TABLE [dbo].[FlowStates](
+	[Code] [int] NOT NULL,
+	[Description] [nvarchar](1024) NOT NULL,
+	[Category] [nvarchar](100) NULL,
+ CONSTRAINT [PK_FlowStates] PRIMARY KEY CLUSTERED 
+(
+	[Code] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] 
+
+ ");
+            }
+
+            var fields = typeof(FlowState).GetFields();
+            var q = from f in fields where f.FieldType == typeof(State) select ((State)f.GetValue(null));
+            //NOTE: very simple code generator here, no quote escape, etc. 
+
+            sb.Append("\n\n");
+            sb.Append("------------------------------------------------------------------------------------------------------\n");
+            sb.Append("-- Insert Flow State Definitions as of date: ").Append(DateTime.Now).Append("\n");
+            sb.Append("------------------------------------------------------------------------------------------------------\n");
+            foreach( var st in q ) {
+                sb.Append("INSERT INTO [FlowStates]([Code] ,[Description],[Category]) VALUES (")
+                  .Append(st.Code).Append(", '").Append(st.Description).Append("',");
+                if( String.IsNullOrEmpty(st.Category)) {
+                    sb.Append("NULL");
+                }else {
+                    sb.Append("'").Append(st.Category).Append("'");
+                }
+                sb.Append(") \n ");
+            }
+
+            return sb.ToString();
+        }
+
+        #endregion 
+    }
+
+
+    public class State {
+        
+        public int Code;
+        public string Description;
+
+        //NOTE: make it simple, control the color here
+        public string Category = ""; 
+       
+        public State( int code, string description ) {
+            Code = code;
+            Description = description;
+        }
+
+    }
+
+    /// <summary>
+    /// This class is created to provide easy way intellisense completion and reeduce odds of typo.
+    /// </summary>
+    public static class StateCategory {
+        public const string UserAction = "UserAction"; 
+        public const string FailedState = "FailedState";
+        public const string SuccessState = "SuccessState";
+        public const string PartialSucess = "PartialSucess";
+
+        // status such as xxxxStarted are just used to mark the kicking off of certain actions
+        // unless they are the last state, normally  you don't want to display them visually.
+        public const string TransientState = "Transient";
+    }
+}

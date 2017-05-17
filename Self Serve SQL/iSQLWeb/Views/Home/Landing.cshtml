@@ -1,0 +1,20 @@
+﻿@model IEnumerable<iSql.Commons.Models.User>
+@{
+    ViewBag.Title = "User selection";
+    ViewBag.Menu = "Home";
+}
+
+  <h1>Please pick a user to start </h1>
+  <div > 
+  @using ( Html.BeginForm() ) { 
+    @Html.DropDownList("user", (SelectList)ViewBag.userList, "-- select user --", new { @class="autopost" })
+    }
+  </div>
+
+@section js { 
+  <script type="text/javascript">
+    $(function () {
+      autopost();
+    }); 
+  </script>
+}

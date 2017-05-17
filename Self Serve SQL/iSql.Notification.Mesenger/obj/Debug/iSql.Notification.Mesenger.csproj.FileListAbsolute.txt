@@ -1,0 +1,18 @@
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.exe.config
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.exe
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.csprojResolveAssemblyReference.cache
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.NotificationMessager.resources
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.Properties.Resources.resources
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.csproj.GenerateResource.Cache
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.exe
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.exe.config
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.exe
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\bin\Debug\iSql.Notification.Mesenger.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.NotificationMessager.resources
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.Properties.Resources.resources
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.csproj.GenerateResource.Cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.exe
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Notification.Mesenger\obj\Debug\iSql.Notification.Mesenger.pdb

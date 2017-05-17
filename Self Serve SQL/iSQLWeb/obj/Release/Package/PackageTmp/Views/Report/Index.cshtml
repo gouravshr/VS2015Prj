@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "★ Self Service SQL - Report";
+    ViewBag.Menu = "Report";
+}
+
+<article id="rpt">
+  <ul> 
+    <li><a href="#rpt_by_proj">Report By Project</a></li>
+    <li><a href="#rpt_by_ticket">Report By Ticket</a></li>
+    <li><a href="#rpt_by_server">Report By Server</a></li>
+    <li><a href="#rpt_mgmt">Management Report</a></li>
+  </ul>
+ <p  class="cleanspacer"> &nbsp;</p>
+  <div id='rpt_by_proj'>
+      <h2 class="sec">Get User List</h2>
+      <form name="rpt_user_list" class="rptform query" action="/Report/ListOfUsersForProject" >
+          <label for="project">Project:</label> @Html.DropDownList("ProjectId", String.Empty)
+          <input type="submit" class="submit" name="submit" value="Get CSV Report" />
+      </form>
+    
+      <h2 class="sec">Get Associated Tickets</h2>
+      <form name="rpt_associated_tickes" class="rptform query" action="/Report/ListOfTicketsForProject" >
+          <label for="project">Project:</label> @Html.DropDownList("ProjectId", String.Empty)
+          <label for="startDate">Start Date:</label> <input type="text" class="datepicker" name="startDate" readonly="readonly" />
+          <label for="startDate">End Date:</label> <input type="text" class="datepicker" name="endDate"  readonly="readonly"/>
+          <input type="submit" class="submit" name="submit" value="Get CSV Report" />
+      </form>
+  </div>
+
+  <div id="rpt_by_ticket">
+      <h2 class="sec">Get Ticket Information</h2>
+      <form name="rptform" class="rptform query" action="/Report/TicketDetails" >
+          <label for="project">Ticket ID:</label> @Html.TextBox("TicketId")
+          <input type="submit" class="submit" value="Get Report" />
+      </form>
+  </div>
+
+  <div id="rpt_by_server">
+      <h2 class="sec">Get Associated Tickets</h2>
+      <form name="rptform" class="rptform query" action="/Report/ListOfQueriesForDatabaseServer" >
+          <label for="project">DB Server:</label> @Html.TextBox("dbServer")
+          <label for="startDate">Start Date:</label> <input type="text" class="datepicker" name="startDate"  readonly="readonly"/>
+          <label for="startDate">End Date:</label> <input type="text" class="datepicker" name="endDate"  readonly="readonly"/>
+          <input type="submit" class="submit" value="Get CSV Report" />
+      </form>
+  </div>
+
+  <div id="rpt_mgmt">
+      <h2 class="sec">Get Usage Summary</h2>
+      <form name="rpt_usg_stats" class="rptform query" action="/Report/UsageSummary" >
+          <input type="submit" class="submit" name="submit" value="Get CSV Report" />
+      </form>
+
+      <h2 class="sec">Get Usage Statistics</h2>
+      <form name="rpt_usg_day" class="rptform query" action="/Report/UsageStats" >
+          <input type="submit" class="submit" name="submit" value="Get CSV Report" />
+      </form>
+    
+      <h2 class="sec">Get Workflow Details</h2>
+      <form name="rpt_usg_details" class="rptform query" action="/Report/WorkflowDetails" >
+          <label for="startDate">Start Date:</label> <input type="text" class="datepicker" name="startDate" readonly="readonly" />
+          <label for="startDate">End Date:</label> <input type="text" class="datepicker" name="endDate"  readonly="readonly"/>
+          <input type="submit" class="submit" name="submit" value="Get CSV Report" />
+      </form>
+  </div>
+
+</article>
+@section js { 
+  <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.min.js")" ></script>
+  <script type="text/javascript">    
+  $(function () {
+    $(".datepicker").datepicker({ prevText: '<', nextText: '>', showOtherMonths:true, selectOtherMonths:true}); 
+    $("#rpt").tabs(); 
+   }); 
+   </script>
+}

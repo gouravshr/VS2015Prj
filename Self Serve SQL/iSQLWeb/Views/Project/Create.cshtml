@@ -1,0 +1,40 @@
+﻿@model iSql.Commons.Models.Project
+
+@{
+    ViewBag.Title = "Create";
+    var dbOptions = new SelectList((List<string>)ViewBag.dbType);  
+}
+
+@using (Html.BeginForm()) {
+  <div class="f" > 
+    @Html.ValidationSummary(true)
+        <label for="Name"> Project Name </label>  @Html.EditorFor(model => model.Name) @Html.ValidationMessageFor(model => model.Name) <br />
+        <label> Login Pattern </label> @Html.EditorFor(model => model.Description) @Html.ValidationMessageFor(model => model.Description) <br />
+        <label></label>e.g. {0}/{1}@@//{2}:{3}/{4} where:- <br /><label></label>0-UserName, 1-Password, 2-HostName, 3-Port, 4-DBName<br />
+        <label> Contact Information </label> @Html.EditorFor(model => model.ContactInfo) @Html.ValidationMessageFor(model => model.ContactInfo) <br />
+        <label> Is Active </label> @Html.EditorFor(model => model.IsActive) @Html.ValidationMessageFor(model => model.IsActive) <br />
+
+        @*<hr />
+        <label> Staging DB Server </label> @Html.EditorFor(model => model.StagingHost ) @Html.ValidationMessageFor(model => model.StagingHost ) <br />
+        <label> Staging DB Port </label> @Html.EditorFor(model => model.StagingPort ) @Html.ValidationMessageFor(model => model.StagingPort ) <br />
+        <label> Staging DB Name </label> @Html.EditorFor(model => model.StagingDatabase ) @Html.ValidationMessageFor(model => model.StagingDatabase ) <br />*@
+
+        <hr />
+        <label> Production DB Server </label> @Html.EditorFor(model => model.ProductionHost ) @Html.ValidationMessageFor(model => model.ProductionHost ) <br />
+        <label> Production DB Port </label> @Html.EditorFor(model => model.ProductionPort ) @Html.ValidationMessageFor(model => model.ProductionPort ) <br />
+        <label> Production DB Name </label> @Html.EditorFor(model => model.ProductionDatabase ) @Html.ValidationMessageFor(model => model.ProductionDatabase ) <br />
+
+        <hr />
+        <label> Database Server Type </label> @Html.DropDownListFor(model => model.DatabaseType, dbOptions, "-- Select DB Type --") @Html.ValidationMessageFor(model => model.DatabaseType) <br />
+        <label> AD Group Key Name </label> @Html.EditorFor(model => model.AdGroupKeyName ) @Html.ValidationMessageFor(model => model.AdGroupKeyName ) <br />
+           <p>(When ADFS enabled, this key will be used to identify group claims in access.selfservicesql.YOUR_KEY_NAME.approver or access.selfservicesql.YOUR_KEY_NAME.requester format.)</p>
+        <hr />
+        <p> <input type="submit" class="submit" value="Create" /> <a href="@Url.Action("Index")" class="link" >Cancel</a> </p>
+
+  </div>
+}
+
+@section js { 
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}

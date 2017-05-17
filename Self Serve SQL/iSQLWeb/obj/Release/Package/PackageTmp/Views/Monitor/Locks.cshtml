@@ -1,0 +1,37 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "★ Self Service SQL - Locks";
+    //ViewBag.Menu = "Admin";
+}
+
+<p class="title">Running aysnc query locks (as of @DateTime.Now )</p> 
+<table class="strip">
+  <thead>
+    <tr>
+        <th>Project Name</th>
+        <th>Server</th>
+        <th>Ticket</th>
+        <th>Ticket Creator</th>
+        <th>Process Id</th>
+        <th>Lock Reason</th>
+        <th>Locked By</th>
+        <th>Locked At</th>
+        <th>Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (DataRow r in ((DataTable)ViewBag.locks).Rows ) {
+    <tr>
+     <td>@r["ProjectName"]</td>
+     <td>@r["ServerCategory"]</td>
+     <td>@r["TicketId"]</td>
+     <td>@r["TicketCreator"]</td>
+     <td>@r["ProcessId"]</td>
+     <td>@r["LockReason"]</td>
+     <td><strong>@r["LockedBy"]</strong></td>
+     <td>@r["LockedAt"]</td>
+     <td>@Html.ActionLink("Remove", "Remove", new { id=r["LockId"] })</td>
+    </tr>      
+    }
+  </tbody>
+</table>

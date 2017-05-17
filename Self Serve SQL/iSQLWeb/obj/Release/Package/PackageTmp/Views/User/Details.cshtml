@@ -1,0 +1,20 @@
+﻿@model iSql.Commons.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">System Role</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SystemRole)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

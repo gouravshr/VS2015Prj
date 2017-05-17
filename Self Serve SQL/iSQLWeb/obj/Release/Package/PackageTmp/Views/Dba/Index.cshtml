@@ -1,0 +1,108 @@
+﻿@using iSql.Commons.Models;
+@using System.Data;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+  ViewBag.Title = "★ Self Service SQL - DBA Center";
+  ViewBag.Menu = "DBA";
+}
+
+@* DBA manual processing center *@
+
+<div id="dba_work_queue" class="sec"><span class="ui-icon ui-icon-folder-open" >&nbsp;</span>DBA Working Queue</div>
+
+<table class="strip" id="dba_work_queue">
+  <thead>
+    <tr><th class="ref">Ref #</th><th class="desc" >Description</th><th class="timestamp">Created At</th><th class="dl">Target Script</th><th class="dl">Rollack Script</th><th class="st">Status</th></tr>
+  </thead>
+  <tbody>
+  @* TODO: restrict access to working folder, and check user identity before deliver dynamic downloading link *@
+  @foreach (DataRow t in  ( (DataTable)ViewBag.workingQueue).Rows ) {
+    <tr class="wq_@(t["TicketId"])">
+      <td><a href="/Ticket/Overview/@t["TicketId"]">@t["TicketId"]</a></td> 
+      <td>@t["Description"]</td> 
+      <td>@(((DateTime)t["CreatedAt"]).ToString("MM/dd/yyyy"))</td> 
+      <td><a href="/Download/TargetSql/@t["TicketId"]">Download</a></td>
+      <td><a href="/Download/RollbackSql/@t["TicketId"]">Download</a></td>
+      <td><button class="btn_ok">Approve</button><button class="btn_no">Reject</button></td> 
+    </tr>
+  }
+  </tbody>
+
+</table>
+
+<div id="dba_recent_decision" class="sec"><span class="ui-icon ui-icon-note" >&nbsp;</span>DBA Decision History</div>
+<table class="strip" id="dba_recent_decision">
+  <thead>
+    <tr><th class="ref">Ref #</th><th class="desc" >Description</th><th class="timestamp">Created At</th><th class="dl">Target Script</th><th class="dl">Rollack Script</th><th class="st">Status</th></tr>
+  </thead>
+  <tbody>
+  @* TODO: restrict access to working folder, and check user identity before deliver dynamic downloading link *@
+  @foreach (DataRow t in  ( (DataTable)ViewBag.decisionHistory).Rows ) {
+    <tr class="wq_@(t["TicketId"])">
+      <td><a href="/Ticket/Overview/@t["TicketId"]">@t["TicketId"]</a></td> 
+      <td>@t["Description"]</td> 
+      <td>@(((DateTime)t["CreatedAt"]).ToString("MM/dd/yyyy"))</td> 
+      <td><a href="/Download/TargetSql/@t["TicketId"]">Download</a></td>
+      <td><a href="/Download/RollbackSql/@t["TicketId"]">Download</a></td>
+      <td>@if ((int)t["Code"] == 10503) { <span class="ui-icon ui-icon-circle-check" >&nbsp;</span><strong>Approved</strong> }else{ <span class="ui-icon ui-icon-circle-close" >&nbsp;</span><strong>Rejected</strong>}</td> 
+    </tr>
+  }
+  </tbody>
+
+</table>
+
+<!-- comments form -->
+<div id="comment-form" >
+    <p >Additonal comments:</p> 
+    <form id="dba_decision">
+            <textarea name="comment" cols="65" rows="3"></textarea>
+    </form>
+</div>
+
+@section js { 
+  <script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+      $(function () {
+          $(".strip tbody tr:odd").addClass("odd");
+
+          $("#comment-form").dialog({
+              autoOpen: false,
+              height: 220,
+              width: 640,
+              modal: true,
+              buttons: {
+                  Go: function () {
+                      var id = $(this).data("id");
+                      var decision = $(this).data("decision");
+
+                      if (decision === "Approve") {
+                          dba_approve(id)
+                      } else {
+                          dba_reject(id);
+                      }
+                      $(this).dialog("close");
+                  },
+                  Cancel: function () {
+                      $(this).dialog("close");
+                  }
+              },
+              close: function () {
+                  //do nothing for now
+              },
+          });
+
+          // we don't want to see the title bar, hackish solution here
+          $(".ui-dialog-titlebar").hide()
+
+          // do dialog binding
+          $("#dba_work_queue button").click(function () {
+              var tr = $(this).parent().parent();
+              var id = tr.find(":first-child > a").html();
+              var decision = $(this).html();
+
+              $("#comment-form").data("id", id).data("decision", decision).dialog("open");
+          });
+      });
+  </script> 
+}

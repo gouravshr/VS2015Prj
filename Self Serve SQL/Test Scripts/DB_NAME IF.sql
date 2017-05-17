@@ -1,0 +1,6 @@
+PRINT DB_NAME()
+
+IF (DB_NAME() = 'Northwind_Stage')
+	PRINT 'SUCCESS'
+ELSE
+	SELECT * FROM NOTEXISTS

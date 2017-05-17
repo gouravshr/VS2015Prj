@@ -1,0 +1,8 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\bin\Release\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\bin\Release\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\bin\Release\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\bin\Release\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\bin\Release\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\obj\Release\iSql.Commons.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\obj\Release\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons\obj\Release\iSql.Commons.pdb

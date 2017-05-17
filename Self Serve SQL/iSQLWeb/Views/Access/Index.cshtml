@@ -1,0 +1,35 @@
+﻿@model IEnumerable<iSql.Commons.Models.Access>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p class="bar"> <a href="@Url.Action("Create")" class="link"><img src="@Url.Content("~/Content/img/add.png")" alt="add user" />Grant new access permisson</a></p>
+
+<table class="strip">
+  <thead>
+    <tr>
+        <th> Enterprise ID </th>
+        <th> Project </th>
+        <th> Role </th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.UserId) </td>
+        <td>@Html.DisplayFor(modelItem => item.Project.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Role)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AccessId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AccessId })
+        </td>
+    </tr>
+}
+  </tbody>
+</table>
+
+@section js { 
+  <script type="text/javascript">$(stripgrid);</script>
+}

@@ -1,0 +1,212 @@
+﻿@model iSql.Commons.Models.Ticket
+@using iSql.Commons;
+@using iSql.Commons.Models;
+@{
+    ViewBag.Title = "Overview";
+
+    iSql.Commons.Models.Project p = ViewBag.project as iSql.Commons.Models.Project;
+
+    // it is easier to define local varaibles here than mess around template 
+    bool isOwner = (bool)ViewBag.isOwner;
+    bool isApprover = (bool)ViewBag.isApprover;
+    bool isDBA = (bool)ViewBag.isDBA;
+    bool isOwnerAndApprover = isOwner && isApprover;
+
+    string roleSign = isApprover ? "2611" : "261b";
+}
+
+<section id="topbox">
+
+<div id="dl" class="box_01">
+   <h3>Download </h3>
+    <p><a href="/Download/TargetSql/@Model.TicketId"> <span class="ui-icon ui-icon-circle-arrow-s"></span> Target Script </a> </p> 
+    <p><a href="/Download/RollbackSql/@Model.TicketId"><span class="ui-icon ui-icon-circle-arrow-s"></span> Rollback Script</a></p> 
+</div>
+<div id="ticket_info" class="box_01"> 
+    <h3>Ticket Information</h3>
+  <p id="basic_info"><span>Ticket </span>&nbsp;&nbsp;@Html.DisplayFor(model => model.TicketId) &nbsp;&nbsp;<span>By </span>&nbsp;&nbsp; @Html.DisplayFor(model => model.UserId) &nbsp; &nbsp;<span>For </span>&nbsp;&nbsp; @Html.DisplayFor(model => model.Project.Name) </p>
+  <p><span>Roles:</span> @if (isDBA) { <strong class="role_dba">&nbsp;&#x26fd;&nbsp;DBA&nbsp;</strong>} <strong class="role_@(ViewBag.accessRole)">&nbsp;&#x@(roleSign);&nbsp;@ViewBag.accessRole</strong> @if (isOwner) { <strong id="role_owner">&nbsp;&#x266c;&nbsp;Owner&nbsp;</strong> }  @*@if (isOwnerAndApprover) { <strong class="role_both">&nbsp;&#x26d4;&nbsp;Cannot approve your own request</strong>}*@ </p>
+  <p><span>Description: </span> @if( !String.IsNullOrWhiteSpace( Model.ItgNumber) ){ <strong><a target="_blank" href="https://sms-atis-cio.accenture.com/itg/web/knta/crt/RequestDetail.jsp?REQUEST_ID=@Model.ItgNumber">ITG @Model.ItgNumber</a></strong>} @Html.DisplayFor(model => model.Description)</p>
+ </div>
+</section>
+
+<div id="work_states">
+  <ul> 
+    <li><a href="#flow"><span class="ui-icon ui-icon-arrowthick-1-s"></span>Visual Flow</a></li>
+    <li><a href="#rawlog"><span class="ui-icon ui-icon-note" ></span>Raw Logs</a></li>
+    <li><a href="#comment"><span class="ui-icon ui-icon-comment" ></span>Comments</a></li>
+  </ul>
+  <p style="clear:both"> &nbsp;</p>
+  <!-- flow graph -->
+  <div id="flow">
+    @FlowHelper.VisualStage(ViewBag.states, (bool) ViewBag.isValidApprover, isOwner:(bool) ViewBag.isOwner, isDba:(bool) ViewBag.isDBA)
+  </div>
+  <!-- raw text based logs -->
+  <div id="rawlog"> 
+    <table class="strip">
+      <thead>
+        <tr><th>State</th><th>Created At</th><th>Log Message</th></tr> 
+      </thead>  
+    @foreach (var w in ViewBag.states) {
+        <tr><td>@w.Name</td><td>@w.CreatedAt</td><td>@FlowHelper.LogMessageDecorator( @w ) </td></tr> 
+    }
+    </table>
+  </div>
+
+  <!-- comments -->
+  <div id="comment">
+    @if( ViewBag.comments != null  ) {
+      <table class="strip" id="comments">
+        <thead><tr><th>By</th><th>Time</th><th>Comment</th></tr></thead>
+      @foreach(Comment c in ViewBag.comments) {
+        <tr id="c-@c.CommentId"><td>@c.ByUser</td><td>@c.CreatedAt</td><td>@c.Text</td></tr>
+      } 
+      </table>
+    }
+
+    <form action="/Ticket/AddComment/@Model.TicketId/" class="addcomment">
+      <textarea maxlength="1024" name="text" rows="3" cols="115" id="newcmt" style="font-size:10pt" placeholder="add your comments here" ></textarea>
+      <br />
+      <input type="button"  value="Add Comment" id="cmtsubmit" class="btn_ok"/> 
+    </form> 
+  </div>
+
+</div>
+<div id="dialog-form" style="display:none">
+   <form id="user_account">
+    <div>
+        <fieldset>
+            <legend><b>Please enter your Oracle Credential below:-</b></legend>
+             <p>
+                <input type="hidden" name ="id" value ="@Model.TicketId" />
+                 <table style="padding:2px">
+                    <tr>
+                        <td>User Name </td>
+                        <td><input type ="text" name ="dbUserName" id="txtUserName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password </td>
+                        <td><input type ="password" name ="dbPassword" id="txtPassword" /></td>
+                    </tr>
+                </table>
+            </p>
+        </fieldset>
+    </div>
+    </form>
+</div>
+
+<!-- comments form -->
+<div id="comment-form" style="display:none" >
+      <fieldset>
+           <legend><b>Additonal comments:-</b></legend>
+           <form id="supervisor_decision">
+               <input type="hidden" name ="id" value ="@Model.TicketId" />
+               <textarea name="commentStr" cols="65"></textarea>
+           </form>
+      </fieldset>
+</div>
+
+@section js { 
+
+  <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.min.js")" ></script>
+  <script type="text/javascript">
+    function getDateStr(dt) { 
+      // javascript date time sucks, and jQuery UI may not be loaded yet.... so have to manually construct it
+      var d ;
+      if( dt ) {  d = dt  } else { d = new Date() }  
+      var date = d.getDate(); var month = d.getMonth() ;  var year = d.getFullYear() 
+      var hour = d.getHours() ; var min = d.getMinutes() ; var sec = d.getSeconds()
+      var ampm
+      if( hour == 12 ) { ampm = "pm" } else if ( hour > 12 ) { hour -= 12 ; ampm = "pm" } else { ampm = "am" } 
+      return  month + "/" + date + "/" + year +" " + hour + ":" + min +":" + sec + " "+ampm;
+    }
+
+    function addnewcomment( id ) {
+      var url = "/Ticket/AddComment/"+id+"/"
+      var txt = $("#newcmt").val()
+      var user = $("#account>b").text()
+      $.post(url, { "text": txt })
+       .success(function(data) { 
+          var o = $.parseJSON( data ) 
+          if( o.ok ) {  
+              // construct new DOM elements 
+              $("#comments").append( "<tr id='"+ o.id +"'><td>"+user+"</td><td>"+ getDateStr() +"</td><td>"+txt+"</td>" )  
+              stripgrid();
+              $("#newcmt").val("")
+          }
+        })
+       .error(function (data) { alert("Error occurs:" + data) }) 
+    }
+
+    $(function () {
+      stripgrid();
+      $("#tabs").tabs();
+      $("#work_states").tabs();
+      $("#cmtsubmit").click(function () { addnewcomment(@Model.TicketId) })
+    });
+  </script>
+
+  <script type="text/javascript">
+      $(function () {
+
+          $("button[name='pushScript']").click(function () {
+              var buttonVal = this.value;
+              $("#dialog-form").dialog({
+                  autoOpen: true,
+                  height: 230,
+                  width: 620,
+                  modal: true,
+                  buttons: {
+                      Go: function () {
+                          if (buttonVal == "pushstage")
+                              pushToStage();
+                          else if (buttonVal == "pushprod")
+                              pushToProd();
+                          else if (buttonVal == "prodconfirm")
+                              prodConfirm();
+                          else if (buttonVal == "prodreject") 
+                              prodRejectAndRollback();
+                      },
+                      Skip: function () {
+                          if (buttonVal == "pushstage")
+                              pushToStage(@Model.TicketId);
+                          else if (buttonVal == "pushprod")
+                              pushToProd(@Model.TicketId);
+                      },
+                      Cancel: function () {
+                          $(this).dialog("close");
+                      }
+                  },
+                  close: function () {
+                      $(this).dialog("close");
+                  },
+              });
+          });
+
+          $("button[name='supervisorDecision']").click(function () {
+              
+              var buttonVal = this.value;
+              $("#comment-form").dialog({
+                  autoOpen: true,
+                  height: 270,
+                  width: 640,
+                  modal: true,
+                  buttons: {
+                      OK: function () {
+                          if (buttonVal === "approve") {
+                              ticketApprove()
+                          } else {
+                              ticketAbort();
+                          }
+                      },
+                      Cancel: function () {
+                          $(this).dialog("close");
+                      }
+                  },
+                  close: function () {
+                      //do nothing for now
+                  },
+              });
+          });
+      });
+  </script> 

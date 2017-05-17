@@ -1,0 +1,39 @@
+﻿@model IEnumerable<iSql.Commons.Models.User>
+
+@{
+    ViewBag.Title = "User Management";
+}
+
+<p>When ADFS integration enabled, you are not supposed to hand edit user access anymore.</p>
+<p class="bar"> <a href="@Url.Action("Create")" class="link"><img src="@Url.Content("~/Content/img/add.png")" alt="add user" />Add new user</a></p>
+
+<table class="strip">
+  <thead>
+    <tr>
+        <th> Enterprise ID</th>
+        <th> System Role </th>
+        <th> Is Active</th>
+        <th class="actitem"></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td> @Html.DisplayFor(modelItem => item.UserId) </td>
+        <td> @Html.DisplayFor(modelItem => item.SystemRole) </td>
+        <td> @Html.DisplayFor(modelItem => item.IsActive) </td>
+
+        @* NOTE: after ADFS integration, links contains special charaters won't work. After experiement with differnet solutions such as
+                 encrypt and decrypt, escaping, and httpruntime rule change, etc, here we go with simplest solution for trailing /. 
+                 By doing this, it somehow 'fool' the routing and make it believe it is sort of directory, not file extensions, but still 
+                 allow mapped route pick it up and convert it to string "id" parameters for the controller.
+        *@
+        <td> <a href="/User/Edit/@item.UserId/" >Edit</a>  |  <a href="/Access/User/@item.UserId/" >Accesses</a> </td>
+    </tr>
+}
+  </tbody>
+</table>
+
+@section js { 
+  <script type="text/javascript">$(stripgrid);</script>
+}

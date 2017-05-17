@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Include>
+    <FullyQualifiedName Name="[0-1011]iSql.Commons.Test.TestFlowState.CheckStageStage" />
+    <FullyQualifiedName Name="[0-1008]iSql.Commons.Test.TestFlowState.TestGenLookUpTableSql" />
+    <FullyQualifiedName Name="[0-1002]iSql.Commons.Test.TestExtension.TestToCsvDT" />
+    <FullyQualifiedName Name="[0-1009]iSql.Commons.Test.TestFlowState.CreateStateObject" />
+    <FullyQualifiedName Name="[0-1005]iSql.Commons.Test.TestFlowState.TestStage" />
+    <FullyQualifiedName Name="[0-1003]iSql.Commons.Test.TestExtension.TestToCsvDS" />
+    <FullyQualifiedName Name="[0-1006]iSql.Commons.Test.TestFlowState.TestNoDuplicatedCode" />
+    <FullyQualifiedName Name="[0-1010]iSql.Commons.Test.TestFlowState.CheckStageInit" />
+    <FullyQualifiedName Name="[0-1007]iSql.Commons.Test.TestFlowState.TestNoDuplicatedDescription" />
+    <FullyQualifiedName Name="[0-1002]iSql.Commons.Test.TestExtension.TesttoXML" />
+    <FullyQualifiedName Name="[0-1004]iSql.Commons.Test.TestExtension.TestToCsvDS" />
+    <FullyQualifiedName Name="[0-1003]iSql.Commons.Test.TestExtension.TestToCsvDT" />
+    <FullyQualifiedName Name="[0-1010]iSql.Commons.Test.TestFlowState.CreateStateObject" />
+    <FullyQualifiedName Name="[0-1007]iSql.Commons.Test.TestFlowState.TestNoDuplicatedCode" />
+    <FullyQualifiedName Name="[0-1006]iSql.Commons.Test.TestFlowState.TestStage" />
+    <FullyQualifiedName Name="[0-1011]iSql.Commons.Test.TestFlowState.CheckStageInit" />
+    <FullyQualifiedName Name="[0-1008]iSql.Commons.Test.TestFlowState.TestNoDuplicatedDescription" />
+    <FullyQualifiedName Name="[0-1012]iSql.Commons.Test.TestFlowState.CheckStageStage" />
+    <FullyQualifiedName Name="[0-1009]iSql.Commons.Test.TestFlowState.TestGenLookUpTableSql" />
+    <FullyQualifiedName Name="[0-1001]iSql.Commons.Test.TestConf.TestConstructor" />
+    <FullyQualifiedName Name="[0-1005]iSql.Commons.Test.TestExtension.TestToCsvDT" />
+    <FullyQualifiedName Name="[0-1006]iSql.Commons.Test.TestExtension.TestToCsvDS" />
+    <FullyQualifiedName Name="[0-1008]iSql.Commons.Test.TestFlowState.TestStage" />
+    <FullyQualifiedName Name="[0-1014]iSql.Commons.Test.TestFlowState.CheckStageStage" />
+    <FullyQualifiedName Name="[0-1013]iSql.Commons.Test.TestFlowState.CheckStageInit" />
+    <FullyQualifiedName Name="[0-1009]iSql.Commons.Test.TestFlowState.TestNoDuplicatedCode" />
+    <FullyQualifiedName Name="[0-1011]iSql.Commons.Test.TestFlowState.TestGenLookUpTableSql" />
+    <FullyQualifiedName Name="[0-1004]iSql.Commons.Test.TestExtension.TesttoXML" />
+    <FullyQualifiedName Name="[0-1010]iSql.Commons.Test.TestFlowState.TestNoDuplicatedDescription" />
+    <FullyQualifiedName Name="[0-1012]iSql.Commons.Test.TestFlowState.CreateStateObject" />
+  </Include>
+</Playlist>

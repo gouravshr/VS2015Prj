@@ -1,0 +1,45 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "★ Self Service SQL - Locks";
+    ViewBag.Menu = "Admin";
+    DataRow r = ViewBag.locks.Rows[0];
+}
+
+<p class="title">Running aysnc query locks (as of @DateTime.Now )</p> 
+<table class="strip">
+  <thead>
+    <tr>
+        <th>Project Name</th>
+        <th>Server</th>
+        <th>Ticket</th>
+        <th>Ticket Creator</th>
+        <th>Lock Reason</th>
+        <th>Locked By</th>
+        <th>Locked At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td>@r["ProjectName"]</td>
+     <td>@r["ServerCategory"]</td>
+     <td>@r["TicketId"]</td>
+     <td>@r["TicketCreator"]</td>
+     <td>@r["LockReason"]</td>
+     <td><strong>@r["LockedBy"]</strong></td>
+     <td>@r["LockedAt"]</td>
+    </tr>      
+  </tbody>
+</table>
+
+@using (Html.BeginForm()) {
+    <div class="f">
+        @Html.Hidden("ticketId", @r["TicketId"])
+        
+        <h1>Confirm lock release for ticket @r["TicketId"]</h1> 
+
+        <label for="Comments">Comments:</label>@Html.TextArea("comments")<br />
+
+        <p> <input type="submit" class="submit" value="Unlock" /> <a href="@Url.Action("Locks")" class="link" >Cancel</a></p>
+
+    </div>
+}

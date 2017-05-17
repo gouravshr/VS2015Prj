@@ -1,0 +1,1 @@
+PRINT 'ROLLBACK ' + DB_NAME()

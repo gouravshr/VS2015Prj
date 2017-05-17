@@ -1,0 +1,18 @@
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\bin\Debug\iSql.Validator.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\bin\Debug\iSql.Validator.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\bin\Debug\nunit.framework.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\obj\Debug\iSql.Validator.csprojResolveAssemblyReference.cache
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\obj\Debug\iSql.Validator.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSql.Validator\obj\Debug\iSql.Validator.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Debug\iSql.Validator.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Debug\iSql.Validator.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Debug\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.pdb
+C:\MVCPractice\Self Serve SQL\iSql.Validator\bin\Debug\iSql.Validator.dll
+C:\MVCPractice\Self Serve SQL\iSql.Validator\bin\Debug\iSql.Validator.pdb
+C:\MVCPractice\Self Serve SQL\iSql.Validator\bin\Debug\nunit.framework.dll
+C:\MVCPractice\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.csprojResolveAssemblyReference.cache
+C:\MVCPractice\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.dll
+C:\MVCPractice\Self Serve SQL\iSql.Validator\obj\Debug\iSql.Validator.pdb

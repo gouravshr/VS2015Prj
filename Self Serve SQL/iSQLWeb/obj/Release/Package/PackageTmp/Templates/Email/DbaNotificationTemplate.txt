@@ -1,0 +1,161 @@
+﻿<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta name=Generator content="Microsoft Word 15 (filtered medium)">
+    <!--[if !mso]><style>v\:* {{behavior:url(#default#VML);}}
+    o\:* {{behavior:url(#default#VML);}}
+    w\:* {{behavior:url(#default#VML);}}
+    .shape {{behavior:url(#default#VML);}}
+    </style><![endif]-->
+    <style>
+        <!--
+        /* Font Definitions */
+        @font-face {{
+            font-family: "Cambria Math";
+            panose-1: 2 4 5 3 5 4 6 3 2 4;
+        }}
+
+        @font-face {{
+            font-family: Calibri;
+            panose-1: 2 15 5 2 2 2 4 3 2 4;
+        }}
+        /* Style Definitions */
+        p.MsoNormal, li.MsoNormal, div.MsoNormal {{
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 12.0pt;
+            font-family: "Times New Roman","serif";
+        }}
+
+        a:link, span.MsoHyperlink {{
+            mso-style-priority: 99;
+            color: blue;
+            text-decoration: underline;
+        }}
+
+        a:visited, span.MsoHyperlinkFollowed {{
+            mso-style-priority: 99;
+            color: purple;
+            text-decoration: underline;
+        }}
+
+        span.EmailStyle17 {{
+            mso-style-type: personal-reply;
+            font-family: "Calibri","sans-serif";
+            color: #1F497D;
+        }}
+
+        p.style45, li.style45, div.style45 {{
+            mso-style-name: style45;
+            mso-margin-top-alt: auto;
+            margin-right: 0in;
+            mso-margin-bottom-alt: auto;
+            margin-left: 0in;
+            font-size: 11.0pt;
+            font-family: "Arial","sans-serif";
+        }}
+
+        p.style49, li.style49, div.style49 {{
+            mso-style-name: style49;
+            mso-margin-top-alt: auto;
+            margin-right: 0in;
+            margin-bottom: 14.25pt;
+            margin-left: 0in;
+            font-size: 10.0pt;
+            font-family: "Arial","sans-serif";
+        }}
+
+        p.style55, li.style55, div.style55 {{
+            mso-style-name: style55;
+            margin-top: 0in;
+            margin-right: 0in;
+            mso-margin-bottom-alt: auto;
+            margin-left: 0in;
+            font-size: 12.0pt;
+            font-family: "Arial","sans-serif";
+        }}
+
+        p.style85, li.style85, div.style85 {{
+            mso-style-name: style85;
+            mso-margin-top-alt: auto;
+            margin-right: 0in;
+            mso-margin-bottom-alt: auto;
+            margin-left: 0in;
+            font-size: 10.0pt;
+            font-family: "Arial","sans-serif";
+        }}
+
+        span.style451 {{
+            mso-style-name: style451;
+        }}
+
+        span.style12 {{
+            mso-style-name: style12;
+            font-weight: bold;
+        }}
+
+        span.style1431 {{
+            mso-style-name: style1431;
+            color: black;
+        }}
+
+        span.style871 {{
+            mso-style-name: style871;
+            font-family: "Arial","sans-serif";
+        }}
+
+        .MsoChpDefault {{
+            mso-style-type: export-only;
+            font-size: 10.0pt;
+        }}
+
+        @page WordSection1 {{
+            size: 8.5in 11.0in;
+            margin: 1.0in 1.0in 1.0in 1.0in;
+        }}
+
+        div.WordSection1 {{
+            page: WordSection1;
+        }}
+        -->
+    </style>
+    <!--[if gte mso 9]><xml>
+    <o:shapedefaults v:ext="edit" spidmax="1026" />
+    </xml><![endif]-->
+    <!--[if gte mso 9]><xml>
+    <o:shapelayout v:ext="edit">
+    <o:idmap v:ext="edit" data="1" />
+    </o:shapelayout></xml><![endif]-->
+</head>
+<body lang=EN-US link=blue vlink=purple>
+    <div class=WordSection1>
+        <p class=MsoNormal><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497D'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal><img width=864 height=119 id="Picture_x0020_1" src="cid:image001.jpg@01CF525D.CB999570" alt="cid:image001.png@01CEC9C5.9E9CF5B0"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497D'><o:p></o:p></span></p><p class=MsoNormal><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497D'><o:p>&nbsp;</o:p></span></p><table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=822 style='width:616.5pt;border-collapse:collapse'>
+            <tr style='height:24.75pt'>
+                <td width=822 colspan=2 valign=top style='width:616.5pt;padding:0in 0in 0in 0in;height:24.75pt'>
+                    <p class=style55 align=center style='text-align:center'><span class=style451><b><span style='font-size:11.0pt'>ATTENTION: </span></b></span><span class=style12>Self Service SQL Tool Validation</span><o:p></o:p></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=822 colspan=2 style='width:616.5pt;padding:0in 0in 0in 0in'>
+                    <p class=style45 align=center style='text-align:center'>&nbsp;<o:p></o:p></p>
+                </td>
+            </tr>
+            <tr>
+                <td width=196 valign=top style='width:147.2pt;padding:0in 0in 0in 0in'>
+                    <p class=style85><b><span style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>Attention: <o:p></o:p></span></b></p>
+                </td>
+                <td width=626 valign=top style='width:469.3pt;padding:0in 0in 0in 0in'><p class=style49><span style='font-size:12.0pt;font-family:"Calibri","sans-serif"'> {0} <o:p></o:p></span></p></td>
+            </tr>
+            <tr style='height:27.9pt'>
+                <td width=196 nowrap valign=top style='width:147.2pt;padding:0in 0in 0in 0in;height:27.9pt'><p class=style85><strong><span style='font-size:12.0pt;font-family:"Calibri","sans-serif"'>How This Affects You:</span></strong><span style='font-size:12.0pt;font-family:"Calibri","sans-serif"'><o:p></o:p></span></p></td>
+                <td width=626 valign=top style='width:469.3pt;padding:0in 0in 0in 0in;height:27.9pt'><p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'> {1} <o:p></o:p></p></td>
+            </tr>
+            <tr style='height:34.5pt'>
+                <td width=196 nowrap valign=top style='width:147.2pt;padding:0in 0in 0in 0in;height:34.5pt'><p class=MsoNormal><strong><span style='font-family:"Calibri","sans-serif"'>Action Required:</span></strong><span style='font-family:"Calibri","sans-serif"'><o:p></o:p></span></p></td>
+                <td width=626 valign=top style='width:469.3pt;padding:0in 0in 0in 0in;height:34.5pt'><p class=MsoNormal><span style='font-family:"Calibri","sans-serif"'> {2} </span><span style='font-family:"Calibri","sans-serif"'><o:p></o:p></span></p></td>
+            </tr>
+        </table>
+        <p class=MsoNormal><strong><span style='font-family:"Calibri","sans-serif"'>Regards,<o:p></o:p></span></strong></p><p class=MsoNormal><strong><span style='font-family:"Calibri","sans-serif"'>CalHEERs Self Service SQL Team<o:p></o:p></span></strong></p><p class=MsoNormal><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497D'><o:p>&nbsp;</o:p></span></p>
+    </div>
+</body>
+</html>

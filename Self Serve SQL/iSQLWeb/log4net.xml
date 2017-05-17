@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+  <root>
+    <level value="INFO" />
+    <appender-ref ref="RollingLogFileAppender" />
+  </root>
+
+  <logger name="ticket" additivity="false">
+    <level value="ALL" />
+    <appender-ref ref="ticket-appender" />
+  </logger>
+
+  <!-- New Log File once per execution -->
+  <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+    <file type="log4net.Util.PatternString" value="%property{LogName}" />
+    <!-- Awesomeness -->
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="-1" />
+    <maximumFileSize value="50MB" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
+    </layout>
+  </appender>
+
+  <appender name="ticket-appender" type="log4net.Appender.RollingFileAppender">
+    <file type="log4net.Util.PatternString" value="%property{TicketLog}" />
+    <!-- Awesomeness -->
+    <appendToFile value="true" />
+    <rollingStyle value="Size" />
+    <maxSizeRollBackups value="-1" />
+    <maximumFileSize value="50MB" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
+    </layout>
+  </appender>
+
+</log4net>
+

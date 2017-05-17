@@ -1,0 +1,30 @@
+﻿@helper MainMenu( string activeMenu ) 
+{   
+		<div id="mainMenu">
+			<ul>
+                @* 
+                   NOTE: with latest .net runtime patch, it will throw "The trust relationship between the primary domain and the trusted domain failed" exception, 
+                        if we don't check anonymous auth (at least in IIS Express).   
+                *@
+                @if (HttpContext.Current.User.Identity.IsAuthenticated) { 
+                    if (HttpContext.Current.User.IsInRole("Admin")) {  @ActiveMenu( @activeMenu, "Admin", "/Admin") } 
+                    if (HttpContext.Current.User.IsInRole("DBA") || HttpContext.Current.User.IsInRole("Admin")) {  @ActiveMenu( @activeMenu, "DBA", "/Dba") } 
+                }
+		    	@ActiveMenu( @activeMenu,  "Template", "/Template/Index")
+	    		@ActiveMenu( @activeMenu,  "Help", "/Help")
+    			@ActiveMenu( @activeMenu,  "Home", "/")
+		    </ul>
+	    </div>
+}
+
+@helper  ActiveMenu( string activeMeanu,  string menuName, string url ) 
+{  
+    if( @menuName == @activeMeanu) 
+    { 
+        <li class="active"><a href="javascript:void(0)"><span>@menuName</span></a></li>
+    } 
+    else 
+    { 
+        <li><a href="@url"> <span>@menuName</span></a></li> 
+    } 
+}

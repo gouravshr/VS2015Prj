@@ -1,0 +1,6 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Release\iSql.Validator.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Release\iSql.Validator.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\bin\Release\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Release\iSql.Validator.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Release\iSql.Validator.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Validator\obj\Release\iSql.Validator.pdb

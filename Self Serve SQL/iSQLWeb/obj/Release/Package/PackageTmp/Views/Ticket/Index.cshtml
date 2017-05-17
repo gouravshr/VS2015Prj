@@ -1,0 +1,44 @@
+﻿@model IEnumerable<iSql.Commons.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p> @Html.ActionLink("Create New", "Create" ) </p>
+
+<table>
+  <thead>
+    <tr>
+        <th> Description </th>
+        <th> Project </th>
+        <th> Created By</th>
+        <th> Created At </th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TicketId }) |
+            @Html.ActionLink("Follow up", "Overview", new { id=item.TicketId }) 
+   <!--         @Html.ActionLink("Details", "Details", new { id=item.TicketId }) |-->
+   <!--         @Html.ActionLink("Delete", "Delete", new { id=item.TicketId }) -->
+        </td>
+    </tr>
+}
+  </tbody>
+</table>

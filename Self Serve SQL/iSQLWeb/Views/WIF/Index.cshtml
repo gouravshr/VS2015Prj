@@ -1,0 +1,56 @@
+﻿//@using System.Security.Claims;
+@using Microsoft.IdentityModel.Claims;
+@using iSql.Commons;
+@using iSQLWeb.Controllers;
+@using iSql.Commons.Models;
+@using System.Text;
+
+@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<Microsoft.IdentityModel.Claims.Claim> claims = ViewBag.Claims;
+
+    StringBuilder sb = new StringBuilder();
+
+    using( EntDbContext db = new EntDbContext() ) { 
+        foreach(var claim in claims) {
+            var type = claim.ClaimType; 
+            if ( type == Conf.ClaimGroup )  {
+
+                var info = ADGroupAccessInfo.FromClaim( claim.Value);
+                var projIds = (from p in db.Projects where p.AdGroupKeyName == info.KeyName select p.ProjectId).ToList<int>();
+                //if (info != null) { info.ProjectId = projId; }
+                info.ProjectIds = projIds;
+
+                sb.Append("Claim Value: [").Append(claim.Value).Append("] => ").Append(info).Append("\n"); 
+            }
+        }    
+    } // end using
+}
+
+<h2>Configuration Infomation</h2>
+<strong>ADFS Enabled :</strong>@Conf.ADFSEnabled<br />
+<strong>Group Schema :</strong>@Conf.ClaimGroup<br />
+<strong>Enterprise ID:</strong>@Conf.ClaimEnterpriseID<br />
+
+<h2>Windows Idenitty Claim Information</h2>
+
+<table>
+    <thead>
+        <tr><th>Claim Type</th><th>Claim Value</th><th>Value Type</th></tr>
+    </thead>
+    <tbody>
+@foreach (var claim in claims) {
+    <tr>
+        <td>@claim.ClaimType</td>
+        <td>@claim.Value</td>
+        <td>@claim.ValueType</td>
+    </tr>
+} 
+    </tbody>
+</table>
+
+<h2>Parsing Info</h2>
+@sb.ToString()

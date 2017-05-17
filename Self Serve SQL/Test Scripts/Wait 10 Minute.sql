@@ -1,0 +1,5 @@
+SELECT GetDate()
+
+WAITFOR DELAY '00:10:00'
+
+SELECT GetDate()

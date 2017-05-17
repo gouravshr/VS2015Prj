@@ -1,0 +1,14 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Shell.Test.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Shell.Test.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Shell.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\log4net.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Shell.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\log4net.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\bin\Debug\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\obj\Debug\iSql.Shell.Test.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\obj\Debug\iSql.Shell.Test.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell.Test\obj\Debug\iSql.Shell.Test.pdb

@@ -1,0 +1,6 @@
+BEGIN TRANSACTION
+
+UPDATE TestTable
+SET TestColumn to 'Test'
+
+COMMIT TRANSACTION

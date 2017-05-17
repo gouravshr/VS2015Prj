@@ -1,0 +1,81 @@
+﻿@* Link to jQuery.pinify (jQuery.ie9ify) *@
+<script src="@Url.Content("~/Scripts/jquery.pinify.min.js")" type="text/javascript"></script>
+
+@* Enable Basic Pinning *@
+<link rel="shortcut icon" type="image/ico" href="~/Content/img/favicon.ico" />  
+<meta name="application-name" content="SQL Deployment Self Service" />
+<meta name="msapplication-starturl" content="http://localhost:2425/" />
+<meta name="msapplication-navbutton-color" content="#FFBA00" />
+<meta name="msapplication-window" content="width=1024;height=768" />
+<meta name="msapplication-tooltip" content="SQL Deployment Self Service" />
+
+@* Enable Static Jump List *@
+<meta name="msapplication-task" content="name=Home; action-uri=http://localhost:2425/; icon-uri=~/Content/img/favicon.ico" />
+<meta name="msapplication-task" content="name=Projects; action-uri=http://localhost:2425/Project/; icon-uri=~/Content/img/favicon.ico" />
+
+@* Add Notifications *@
+<script src="@Url.Content("~/Scripts/ISqlWeb.pinify.js")" type="text/javascript"></script>
+
+@*
+<!-- Include the pinify jQuery plugin -->
+<script src="@Url.Content("~/Scripts/jquery.pinify.min.js")" type="text/javascript"></script> 
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        // Here we're adding calling pinify and passing it a set of options
+        // pinify will then automatically create the correct <meta> tags and
+        // insert them into the head of your document        
+
+        $("head").pinify({
+            applicationName: "Sql Deployment Self Service",
+            favIcon: "~/Content/img/favicon.ico",
+            navColor: "#FFBA00",
+            startUrl: "http://localhost:2425/",
+            tooltip: "SQL Deployment Self Service",
+            window: "width=1024;height=768"
+        });
+
+        // pinify() can be called with no parameters,            
+        // if it is, the plugin will use current information available            
+        // to the browser to set the needed values.        
+
+        // Here we're creating an array to store our Pinning Steps
+        var stepsArray = [];
+
+        // In the example below, we're going to generate a list of Pinning Steps to 
+        // display in our Dynamic Jump List based on an HTML list of Pinning Steps 
+        // here on buildmypinnedsite.com 
+
+        // Since we're using the pinify jQuery plugin, we do not need to use the
+        // try/catch blocks, pinify handles that for us 
+
+        // Here we're grabbing the list of Pinning Steps from an unordered list on this site
+        // and looping through the
+
+        $("#steps a").each(data, function (key, val) {
+            var $this = $(this);
+
+            // The name, destination URL and icon of the current Pinning Step    
+            // is stored in an object    
+
+            var item = {
+                'name': $this.html(),
+                'url': $this.attr("href"),
+                'icon': "/favicon.ico"
+            };
+
+            // That object is then added to the array we created to store our Pinning Steps    
+            stepsArray.push(item);
+        });
+
+        // Here we're calling pinify's addJumpList method
+        // It combines both the msSiteModeCreateJumpList and msSiteModeAddJumpListItem
+        // methods and creates a Dynamic Jump List using the tile and array of items below
+
+        $.pinify.addJumpList({
+            title: "Build My Pinned Site",
+            items: stepsArray
+        });
+    }); 
+</script>
+
+*@

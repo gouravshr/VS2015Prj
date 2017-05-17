@@ -1,0 +1,13 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\iSql.Util.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\iSql.Util.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\log4net.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\RabbitMQ.Client.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\RabbitMQ.ServiceModel.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\bin\Release\log4net.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Release\iSql.Util.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Release\iSql.Util.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Util\obj\Release\iSql.Util.pdb

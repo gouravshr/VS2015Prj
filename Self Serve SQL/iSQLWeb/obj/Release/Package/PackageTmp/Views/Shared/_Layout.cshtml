@@ -1,0 +1,64 @@
+﻿@using System.Text;
+@using iSql.Commons;
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+	<title>@ViewBag.Title</title>
+    
+
+	<link href="@Url.Content("~/Content/Site.css?=" + iSql.Commons.StateMachine.versionNumber)" rel="stylesheet" type="text/css" />    
+  <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js?=" + iSql.Commons.StateMachine.versionNumber)" type="text/javascript"></script>
+  <noscript>Please enable JavaScript otherwise this site will not function properly!</noscript>
+</head>
+<body>
+	<div id="container">
+	  <div id="wrapper">
+		<header id="header">
+		  <!-- top logo section -->
+		  <hgroup class="logo">
+            <a href="/Home" title="home page"><img src="@Url.Content("~/Content/img/banner_002.png?=" + iSql.Commons.StateMachine.versionNumber)" alt="Self Service SQL home" /></a>
+			@if (HttpContext.Current.User.Identity.IsAuthenticated) { <h3 id="account"  ><b>@HttpContext.Current.User.Identity.Name</b></h3>}
+            <nav>@LayoutHelper.MainMenu( @ViewBag.Menu ) </nav>
+		  </hgroup>
+		  <!-- top nav bar section -->
+		  <!-- search form section -->
+		  <form action="/Search">
+			<fieldset>
+			  <legend>Search</legend> <input type="search" class="text" name="q" title="Enter ticket # here" results="8" placeholder="please input ref # here" />
+			  <input type="submit" class="submit" value="Search" />
+			</fieldset>
+		  </form>
+		</header>
+		<section id="main"> @RenderBody() </section>
+
+  <!-- footer section -->
+  
+        <footer id="footer">
+	      <div class="center">
+            <p class="copyright"> <small> &copy; <a href="#">Accenture Performance Engineering & Data Arch Group</a> 2011, All rights reserved.</small> </p> 
+           
+            <p class="note"> <small> @Conf.FooterVersionInfo </small> </p>
+            <div id="links"> 
+            @if (Conf.EnableCIOSpecificContent) {     
+                <ul> 
+                    <li><a href="http://sqllint.accenture.com" title="fine tune your query performance!">Sql Lint Tool</a></li> 
+                    <li><a href="http://ts.accenture.com/sites/DATA/PE/Public/Wiki" title="Performance Engineering Public Wiki Site">PE Wiki</a></li>  
+                    <li><a href="/Help" title="Get help">Help</a></li> 
+                </ul> 
+            }
+            </div>
+
+	      </div>
+	    </footer>
+	  </div>
+	</div>
+
+  <!-- intentionally put script at the buttom -->
+  <script src="@Url.Content("~/Scripts/jquery-1.6.2.min.js?=" + iSql.Commons.StateMachine.versionNumber)" type="text/javascript"></script>
+  <script src="@Url.Content("~/Scripts/commons.js?=" + iSql.Commons.StateMachine.versionNumber)" type="text/javascript"></script>
+
+  @RenderSection("js", required: false)  
+</body>
+</html>

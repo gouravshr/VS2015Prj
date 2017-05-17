@@ -1,0 +1,1 @@
+EXEC ('SELECT * FROM Test');

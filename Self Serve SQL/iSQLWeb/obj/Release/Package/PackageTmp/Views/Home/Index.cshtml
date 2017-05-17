@@ -1,0 +1,94 @@
+﻿@using iSql.Commons.Models;
+@using System.Data;
+@{
+  ViewBag.Title = "★ Self Service SQL - Home";
+  ViewBag.Menu = "Home";
+}
+
+@* Sometimes we need to modify the important message such as maintenance notice to display.*@
+@if ((bool)ViewBag.hasMessage) { 
+    <div class="warnmsg">
+        <strong>@ViewBag.message</strong>
+    </div>  
+}
+<a href='/Ticket/Upload' class="uplink" ><p><img src="@Url.Content("~/Content/img/box_upload.png")" alt="upload" title="upload script" height="24" width="24" />Upload New Script</p></a> 
+
+<div id="my_recent_req" class="sec"><span class="ui-icon ui-icon-tag">&nbsp;</span>My Recent Requests</div>
+
+<table class="strip">
+  <thead>
+    <tr><th class="ref">Ref #</th><th class="desc" >Description</th><th class="timestamp">Created At</th><th class="dl">Target Script</th><th class="dl">Rollack Script</th><th class="st">Status</th></tr>
+  </thead>
+  <tbody>
+  @* TODO: restrict access to working folder, and check user identity before deliver dynamic downloading link *@
+  @foreach (DataRow t in  ( (DataTable)ViewBag.tickets).Rows ) {
+    <tr>
+      <td><a href="/Ticket/Overview/@t["TicketId"]">@t["TicketId"]</a></td> 
+      <td>@t["Description"]</td> 
+      <td>@(((DateTime)t["CreatedAt"]).ToString("MM/dd/yyyy"))</td> 
+      <td><a href="/Download/TargetSql/@t["TicketId"]">Download</a></td>
+      <td><a href="/Download/RollbackSql/@t["TicketId"]">Download</a></td>
+      <td>@t["Status"]</td> 
+    </tr>
+  }
+  </tbody>
+</table>
+
+<div id="myPrjFilter" class="filter"><input id="searchPrjRequest" type="search" class="text" style="width:200px;" name="q" title="Enter text to filter the Requests" placeholder="please input text to filter" /></div>
+<div id="my_proj_req" class="sec" ><span class="ui-icon ui-icon-mail-open">&nbsp;</span> My Project Requests</div>
+
+<table class="strip">
+  <thead>
+    <tr><th class="ref">Ref #</th><th class="desc" >Description</th><th class="createdby">Created By</th><th class="timestamp">Created At</th><th class="dl">Target Script</th><th class="dl">Rollack Script</th><th class="st">Status </th></tr>
+  </thead>
+  <tbody id="myPrjRequest">
+  @foreach (DataRow t in  ((DataTable)ViewBag.followup).Rows) {
+    <tr>
+      <td><a href="/Ticket/Overview/@t["TicketId"]">@t["TicketId"]</a></td> 
+      <td>@t["Description"]</td> 
+      <td>@t["UserId"]</td>
+      <td>@(((DateTime)t["CreatedAt"]).ToString("MM/dd/yyyy") )</td> 
+      <td><a href="/Download/TargetSql/@t["TicketId"]">Download</a></td>
+      <td><a href="/Download/RollbackSql/@t["TicketId"]">Download</a></td>
+      <td>@t["Status"]</td> 
+    </tr>
+  }
+  </tbody>
+</table>
+
+@section js { 
+  <script type="text/javascript">
+    $(function () {
+      $(".strip tbody tr:odd").addClass("odd");
+    });
+  </script> 
+<script src="jquery-1.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchPrjRequest").keyup(function () {
+            //hide all the rows
+            FilterMyPrjRequest(this);
+        }).focus(function () {
+            this.value = "";
+            $(this).css({ "color": "black" });
+            $(this).unbind('focus');
+        }).css({ "color": "#C0C0C0" });
+    });
+
+    function FilterMyPrjRequest(obj) {
+        $("#myPrjRequest").find("tr").hide();
+        //split the current value of searchInput
+        var data = obj.value.split(" ");
+        //create a jquery object of the rows
+        var jo = $("#myPrjRequest").find("tr");
+
+        //Recusively filter the jquery object to get results.
+        $.each(data, function (i, v) {
+            jo = jo.filter("*:contains('" + v + "')");
+        });
+        //show the rows that match.
+        jo.show();
+        return true;
+    }
+</script>
+}

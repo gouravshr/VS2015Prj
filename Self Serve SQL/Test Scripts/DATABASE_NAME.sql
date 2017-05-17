@@ -1,0 +1,1 @@
+PRINT DB_NAME()

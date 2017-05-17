@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "About Us";
+    Layout = null;
+}
+
+<h2>About</h2>
+<p>
+Hello, this is a modal jquery popup ! <br />
+    @{
+        Html.BeginForm("Save", "");
+    }
+    UserId <input type ="text" name ="userName" id="txtUserName" /> <br />
+    Password <input type ="password" name ="password" id="txtPassword" /><br />
+    <p><button type="submit">Save</button></p>
+    
+</p>
+<p><a href="javascript:void(0);" class="close">Close this Window</a></p>

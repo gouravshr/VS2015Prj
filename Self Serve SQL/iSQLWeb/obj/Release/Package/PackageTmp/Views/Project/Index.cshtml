@@ -1,0 +1,35 @@
+﻿@model IEnumerable<iSql.Commons.Models.Project>
+
+@{
+    ViewBag.Title = "Project Management";
+}
+
+<p class="bar"> <a href="@Url.Action("Create")" class="link"><img src="@Url.Content("~/Content/img/add.png")" alt="add user" />Add new project</a></p>
+<table class="strip">
+  <thead>
+    <tr>
+        <th> Name </th>
+        <th> Login Pattern </th>
+        <th> Contact Info </th>
+        <th> Is Active </th>
+        <th class="actitem"></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td> @Html.DisplayFor(modelItem => item.Name) </td>
+        <td> @Html.DisplayFor(modelItem => item.Description) </td>
+        <td> @Html.DisplayFor(modelItem => item.ContactInfo) </td>
+        <td> @Html.DisplayFor(modelItem => item.IsActive) </td>
+        <td> @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) </td>
+    </tr>
+}
+  </tbody>
+</table>
+
+
+
+@section js { 
+  <script type="text/javascript">$(stripgrid);</script>
+}

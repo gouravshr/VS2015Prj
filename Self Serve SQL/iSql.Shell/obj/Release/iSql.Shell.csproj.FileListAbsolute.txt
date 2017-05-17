@@ -1,0 +1,12 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\iSql.Shell.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\iSql.Shell.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\log4net.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\bin\Release\log4net.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\obj\Release\iSql.Shell.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\obj\Release\iSql.Shell.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Shell\obj\Release\iSql.Shell.pdb

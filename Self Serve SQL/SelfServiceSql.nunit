@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" processModel="Default" domainUsage="Default" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="iSql.Commons.Test\bin\Debug\iSql.Commons.Test.dll" />
+    <assembly path="iSql.Validator.Test\bin\Debug\iSql.Validator.Test.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

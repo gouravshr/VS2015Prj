@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Include>
+    <FullyQualifiedName Name="[0-1008]iSql.Validator.Test.TestBackup.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1050]iSql.Validator.Test.TestUpdateDeleteWhere.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1048]iSql.Validator.Test.TestTruncate.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1001]iSql.Validator.Test.TestAuthentication.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1031]iSql.Validator.Test.TestRestore.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1044]iSql.Validator.Test.TestTrigger.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1013]iSql.Validator.Test.TestDrop.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1041]iSql.Validator.Test.TestSqlValidator.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1005]iSql.Validator.Test.TestAuthorization.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1035]iSql.Validator.Test.TestSnapshot.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1011]iSql.Validator.Test.TestConfigure.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1034]iSql.Validator.Test.TestSnapshot.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1002]iSql.Validator.Test.TestAuthentication.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1019]iSql.Validator.Test.TestFileChanges.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1004]iSql.Validator.Test.TestAuthorization.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1014]iSql.Validator.Test.TestDrop.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1045]iSql.Validator.Test.TestTrigger.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1032]iSql.Validator.Test.TestRestore.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1028]iSql.Validator.Test.TestJob.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1029]iSql.Validator.Test.TestJob.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1037]iSql.Validator.Test.TestSpExcuteSql.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1007]iSql.Validator.Test.TestBackup.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1022]iSql.Validator.Test.TestGovernor.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1051]iSql.Validator.Test.TestUpdateDeleteWhere.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1047]iSql.Validator.Test.TestTruncate.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1053]iSql.Validator.Test.TestUse.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1026]iSql.Validator.Test.TestIsolationLevel.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1020]iSql.Validator.Test.TestFileChanges.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1010]iSql.Validator.Test.TestConfigure.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1054]iSql.Validator.Test.TestUse.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1016]iSql.Validator.Test.TestExec.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1042]iSql.Validator.Test.TestSqlValidator.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1038]iSql.Validator.Test.TestSpExcuteSql.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1017]iSql.Validator.Test.TestExec.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1023]iSql.Validator.Test.TestGovernor.TestValidateSqlBase.TestGoodSql" />
+    <FullyQualifiedName Name="[0-1025]iSql.Validator.Test.TestIsolationLevel.TestValidateSqlBase.TestBadSql" />
+    <FullyQualifiedName Name="[0-1040]iSql.Validator.Test.TestSqlValidator.TestScriptWithMultipleErrors" />
+  </Include>
+</Playlist>

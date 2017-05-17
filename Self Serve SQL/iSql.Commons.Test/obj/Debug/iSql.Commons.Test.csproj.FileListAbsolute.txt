@@ -1,0 +1,10 @@
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\iSql.Commons.Test.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\iSql.Commons.Test.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\nunit.framework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\bin\Debug\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\obj\Debug\iSql.Commons.Test.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\obj\Debug\iSql.Commons.Test.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSql.Commons.Test\obj\Debug\iSql.Commons.Test.pdb

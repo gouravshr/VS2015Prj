@@ -1,0 +1,123 @@
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSQLWeb.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSQLWeb.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\Accenture.Web.Security.WifExtensions.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\EntityFramework.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Commons.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Shell.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Util.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Validator.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\log4net.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\Newtonsoft.Json.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Net.Http.Formatting.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Helpers.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Http.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Http.WebHost.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Mvc.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Razor.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.Deployment.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.Razor.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\RabbitMQ.Client.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Commons.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Shell.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Util.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\iSql.Validator.pdb
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\EntityFramework.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\log4net.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\Microsoft.Web.Infrastructure.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\Newtonsoft.Json.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Net.Http.Formatting.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Http.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Http.WebHost.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Mvc.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Razor.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.Helpers.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.Deployment.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\bin\System.Web.WebPages.Razor.xml
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\obj\Debug\iSQLWeb.csprojResolveAssemblyReference.cache
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\obj\Debug\iSQLWeb.dll
+C:\SSS_Docs\SelfServiceSQL_3371-GIT\SelfServiceSQL_3371-GIT\src\iSQLWeb\obj\Debug\iSQLWeb.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSQLWeb.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSQLWeb.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Accenture.Web.Security.WifExtensions.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\EntityFramework.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Commons.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Shell.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Util.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Validator.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\log4net.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Newtonsoft.Json.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Oracle.DataAccess.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Net.Http.Formatting.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Helpers.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Http.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Http.WebHost.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Razor.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Deployment.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Razor.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\RabbitMQ.Client.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Commons.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Shell.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Util.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\iSql.Validator.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\EntityFramework.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\log4net.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Microsoft.Web.Infrastructure.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\Newtonsoft.Json.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Net.Http.Formatting.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Http.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Http.WebHost.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Razor.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Helpers.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Deployment.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Razor.xml
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.csprojResolveAssemblyReference.cache
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.dll
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.pdb
+C:\CalHeers_SSS\SourceCode\Self Serve SQL\iSQLWeb\bin\System.Web.Mvc.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSQLWeb.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSQLWeb.pdb
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Accenture.Web.Security.WifExtensions.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\EntityFramework.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Commons.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Shell.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Util.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Validator.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\log4net.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Newtonsoft.Json.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Oracle.DataAccess.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Net.Http.Formatting.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Helpers.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Http.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Http.WebHost.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Razor.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Deployment.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Razor.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\RabbitMQ.Client.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Commons.pdb
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Shell.pdb
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Util.pdb
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\iSql.Validator.pdb
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\EntityFramework.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\log4net.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Microsoft.Web.Infrastructure.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\Newtonsoft.Json.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Net.Http.Formatting.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Http.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Http.WebHost.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Mvc.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Razor.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.Helpers.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Deployment.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\bin\System.Web.WebPages.Razor.xml
+C:\MVCPractice\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.csprojResolveAssemblyReference.cache
+C:\MVCPractice\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.dll
+C:\MVCPractice\Self Serve SQL\iSQLWeb\obj\Debug\iSQLWeb.pdb

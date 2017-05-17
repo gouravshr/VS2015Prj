@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "★ Self Service SQL - Help";
+    ViewBag.Menu = "Help";
+}
+
+<section class="help"> 
+
+  <article>
+    <h2>Do I still need to log an ITG?</h2>
+    <strong>No.</strong>  An ITG is no longer required. If you wish, you can add such information in comments after ticket's workflow is crated.<br />
+    <br />
+ </article>
+ 
+ <article>
+    <h2>Why do I need to include a rollback script?</h2>
+    In order to maintain Sarbox compliance, a rollback script is required for any change to the system.  The rollback script is validated in the same manner as the change script and will be executed if a change scripts does not execute properly.<br />
+    <br /> 
+    Yes, you can input an empty rollback script, or you can even download an empty script that does nothing but print datetime and process information from our <a href="/Template">template gallery</a>.
+ </article>
+
+ <article>
+    <h2>Do I have to use the templates?</h2>
+    Short answer is - "No, you don't and you are free to write any valid script.". <br />
+    <br />
+    But, we do encourage best practice of SQL coding style to output proper information to help the approver (who may not be tech savy person), your co-worker or even yourself to keep track of what's executing, and in case of failure you can quickly identify where it fails. It will certainly help you to debug your script without banging your head to the door. <br />    
+    <br />
+    Those templates are provided as guidance and convenient way of wrapping your SQL change, and it is written by highly skilled professionals, so we do recommend you to utilize them as much as you can.
+ </article>
+
+ <article>
+    <h2>Why did validation fail?</h2>
+    All target and rollback scripts are validated prior to execution.  The validation routine looks for types of scripts that would violate best practices, scripts that would attempt to break security policy, or scripts that are likely complex enough to require DBA review.  You may request the DBA team to execute the script on your behalf through the ITG process.<br />
+    <br />
+    Some common prohibited activity: <br />
+    <ol>
+        <li>Executing a CRUD operation without a where clause</li>
+        <li>Dropping an object</li>
+        <li>Truncating a table</li>
+        <li>Executing dynamic SQL</li>
+        <li>Changing the isolation level</li>
+        <li>Backup or restore a database</li>
+        <li>Executing a script on an alternate database</li>
+        <li>Snapshot operations</li>
+        <li>Alter the physical file structure</li>
+        <li>Alter the resource governor</li>
+        <li>Grant/Revoke access to the system</li>
+        <li>Anything to do with Triggers</li>
+        <li>Anything to do with SQL Jobs</li>
+        <li>Changing the server configuration</li>
+    </ol>
+ </article>
+
+ <article>
+    <h2>Can I change a script that has been submitted?</h2>
+    <strong>No,</strong> once submitted a script can not be changed.  This is to ensure audit compliance for all changes.<br />
+    <br />
+    You may cancel the current workflow and resubmit a new copy of the script.
+ </article>
+
+ <article>
+    <h2>Which browsers are supported? </h2>
+    This application is <strong>HTML5</strong> based and should work in all modern browsers. For best results, please use one of the following browsers:  
+    <ol><li><a href="http://ie.microsoft.com/testdrive/info/downloads/">Internet Explorer</a>8.0 and higher, all versions.</a>, or future release.</li><li><a href="http://www.google.com/chrome/" >Google Chrome</a>, all platforms.</li><li><a href="http://www.mozilla.com/en-US/firefox/new/" >FireFox </a>4.x and higher, all platforms.</li><li><a href="http://www.apple.com/safari/download/">Safari </a>5.x and higher, all platforms.</li><li><a href="http://www.opera.com/" >Opera</a> 11 and higher, all platforms.</li></ol> 
+    In addition, the following mobile platforms are supported.  Screenshots: <br />
+    <ol><li><a href="@Url.Content("~/Content/img/sss_iPad2.png")" target="_blank" >iPhone 3, iPad2</a></li><li><a href="@Url.Content("~/Content/img/sss_android_honeycomb.png")" target="_blank" >Android 3.0 (Homecomb)</a></li> <li><a href="@Url.Content("~/Content/img/sss_win_phone7.png")" target="_blank" >on Windows Phone 7</a></li></ol>
+ </article>
+ 
+ <article>
+    <h2>What T-SQL operations are we allowed to use in SSS?</h2>
+    The following are pemitted operations.<br/>
+    <strong>SQL Permission</strong>
+    <ol>
+        <li>ALTER ANY FULLTEXT CATALOG</li>
+        <li>ALTER ANY MESSAGE TYPE</li>
+        <li>ALTER ANY REMOTE SERVICE BINDING</li>
+        <li>ALTER ANY SCHEMA</li>
+        <li>ALTER ANY SERVICE</li>
+        <li>CREATE AGGREGATE</li>
+        <li>CREATE FUNCTION</li>
+        <li>CREATE PROCEDURE</li>
+        <li>CREATE QUEUE</li>
+        <li>CREATE SYNONYM</li>
+        <li>CREATE TABLE</li>
+        <li>CREATE TYPE</li>
+        <li>CREATE VIEW</li>
+        <li>DELETE</li>
+        <li>EXECUTE</li>
+        <li>INSERT</li>
+        <li>REFERENCES</li>
+        <li>SELECT</li>
+        <li>SHOWPLAN</li>
+        <li>UPDATE</li>
+        <li>VIEW DATABASE STATE</li>
+        <li>VIEW DEFINITION</li>
+    </ol>
+ </article>
+
+ <article>
+    <h2>Why am I unable to execute stored procedures?</h2>
+    When executing stored procedures and functions, exclude the EXEC/EXECUTE keyword. You can execute your stored procedures and functions just by calling their names. Specifically, it is the&#160;&quot;EXEC&quot; and&#160;&quot;sp_execute&quot; keywords that the SSS Tool prevents. This was to prevent execution of invalid SQL using the Self Service SQL tool.
+ </article>
+
+ <article>
+    <h2>Can one individual be an Approver and a Requester?</h2>
+    Yes. Approvers, by default, can log SSS tickets.
+ </article>
+
+ <article>
+    <h2>Can an Approver approve a ticket he or she submitted?</h2>
+    No, script executions in SSS will always require two people. One purpose of this is to ensure that the script to be executed is reviewed by another.
+ </article>
+
+ <article>
+    <h2>Can an Approvers continue the workflow of another Approver?</h2>
+    Yes. Assuming Approver 1 executed a script in staging and went on holiday. Approver 2, who is available, may execute the script in production.
+ </article>
+
+ <article>
+    <h2>It says &quot;Dangerous SQL Detected,&quot; how do we know what caused the validation error?</h2>
+    Check the error message in the &quot;Raw Logs&quot; tab.  It will list the reason for the script failing validation.  The script can then be corrected and resubmitted
+ </article>
+
+ <article>
+    <h2>How long can we put a SSS ticket on hold?</h2>
+    Release 1.1 has no limit on the time between workflow steps.  A future release may automatically close any open tickets 60 days after original upload.
+ </article>
+
+ <article>
+    <h2>How do we add and/or remove users in SSS?</h2>
+    For adding new users, please update the details specified in your SSS item in <a href="/sites/CIOTS/DataArchitecture/Lists/Self%20Service%20SQL%20Access/AllItems.aspx">here</a>.  Any update must be submitted or approved by an individual on the project manager list.
+ </article>
+
+ <article>
+    <h2>Self-Service SQL Contacts</h2>
+    <u>APM</u>:  Benito Ralph<br/>
+    <u>Queries</u>: Please reach out to <a href="mailto:CIO.DA.PE.SelfServiceSQL@accenture.com">CIO.DA.PE.SelfServiceSQL@accenture.com</a> <br/>
+    <u>Issues</u>: If you have technical questions that may not have been answered in our FAQ section above or need to report an incident about Self Service SQL, please do it via the <a href="https://ts.accenture.com/sites/DATA/PE/Public/Lists/SSS%20Issue%20Tracker/AllItems.aspx" target="_blank">issue tracker</a> section of the <a href="https://ts.accenture.com/sites/DATA/PE/Public/Wiki/Index.aspx" target="_blank"> cio performance </a>engineering site.</article>
+
+</section>

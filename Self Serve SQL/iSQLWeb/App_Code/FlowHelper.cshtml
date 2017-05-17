@@ -1,0 +1,286 @@
+﻿@using iSql.Commons;
+@using iSql.Commons.Models;
+@using System.Web.Mvc;
+@using System.Web.Mvc.Html;
+
+@**********************************************************
+ Visual stage rendering helper methods 
+ ***********************************************************@  
+ 
+@helper VisualStage( IEnumerable<WorkState> states, bool isValidApprover ,bool isOwner=false, bool isDba = false ) { 
+
+  if( states == null || states.Count() == 0 ){ 
+    <div class="not-started" >(not started) </div>
+    return;
+  }
+  
+  int lastStateCode = states.LastOrDefault<WorkState>().Code; 
+
+  @* unfortunately, have to hack it this way... maybe next release of MVC can support built-in helpers *@
+  var _url = new System.Web.Mvc.UrlHelper(Context.Request.RequestContext);
+
+  int level = 0 ;   
+  
+  foreach (var st in states) 
+  {
+    if( FlowState.IsInitStage( st.Code ) && level < 1 ) { 
+      <h1><span class="ui-icon ui-icon-unlocked"></span>Initialize Stage</h1>
+      level = 1; 
+    }
+    /*
+    else if ( FlowState.IsStagingStage( st.Code ) && level < 2 ) { 
+      <h1><span class="ui-icon ui-icon-unlocked"></span>Staging Stage</h1>
+      level = 2; 
+    }
+     */ 
+    else if ( FlowState.IsProductionStage( st.Code ) && level < 3 ) { 
+      <h1><span class="ui-icon ui-icon-unlocked"></span>Production Stage</h1>
+      level = 3; 
+    }
+
+    //NOTE: now we have to pass the dba role information down the chain.
+    @RenderAction( @st, lastStateCode , _url, isValidApprover,isOwner:isOwner, isDba:isDba ) 
+  } 
+}
+
+@helper PickClass( string cat ) { 
+    switch (@cat) {
+    case StateCategory.SuccessState: <text>start_ state</text>; break; 
+    case StateCategory.FailedState: <text>error_  state</text>; break;
+    case StateCategory.PartialSucess: <text>partial_ state</text>; break;     
+    case StateCategory.UserAction: <text>useraction_ </text>; break;
+    case StateCategory.TransientState: <text>useraction_ </text>; break;
+    default: <text>@cat</text>; break;
+  }  
+}
+
+@helper RenderAction( WorkState st, int lastStateCode , UrlHelper url, bool isValidApprover, bool isOwner=false, bool isDba = false )  { 
+  @* for speical stage state, like work termination, etc, render it no matter what kind of category it belongs to *@
+    if (st.Category == StateCategory.UserAction ) {
+      if(st.Code == lastStateCode) {
+          
+          if (st.Code == FlowState.TicketWaitingForApproval.Code)
+          {
+              if( ! isValidApprover ) 
+              { 
+            <div class="@PickClass( @st.Category) " >@st.Name</div>  
+            if( st.Code != lastStateCode) { <img src="@url.Content("~/Content/img/arrow_down.png")" class="arrow_right" alt="" /> }
+            return; 
+          }
+          else
+          {   <div class="@PickClass( @st.Category) " >
+                  @* NOTE: p and ul won't play well with each other per the spec, use div here. *@
+                  <p id="ticket_decision">
+                    This request is pending for your approval, Kindly validate the request and register your decision by click on the below button:-<br /><br />
+                    <button onclick="showTicketApproveConfirmation()" class="btn_ok">Approve request</button> 
+                    <button onclick="showTicketAbortConfirmation()" class="btn_no">Abort request</button> 
+                  </p>
+                  
+                  <p id="ticket_approve" class="hide">
+                    Are you sure you want to approve the request? If you hit it by mistake, please click cancel button.  <br />
+                    <button id="btn_ticket_approve" class="btn_ok"  name="supervisorDecision" value="approve">OK</button> <button id="btn_cancel_ticket_approve" onclick="cancelTicketApprove()" class="btn_no">Cancel</button>
+                  </p>
+
+                  <p id="ticket_abort" class="hide">
+                    Are you sure you want to abort this request? If you hit it by mistake, please click cancel button.  <br />
+                    <button id="btn_ticket_abort" name="supervisorDecision" value="reject" class="btn_ok">OK</button> <button id="btn_cancel_ticket_abort" onclick="cancelTicketAbort()" class="btn_no">Cancel</button>                                     
+                  </p>
+              </div>
+            }
+              return;
+         }
+          @*NOTE: manual DBA scripts validation step is very speicial step, that every valid user (requester, approver, original submitter or not) should
+                  have the option to kick off manual validation or terminate the flow. So we need to skip authenticaiton here. 
+          *@
+          if( st.Code == FlowState.DBAOverwriteWaitForDecision.Code) {
+              <div class="@PickClass( @st.Category) " >
+                  @* NOTE: p and ul won't play well with each other per the spec, use div here. *@
+                  <div id="dba_overwrite_decision">
+                    Your scripts failed on automatical validators. Now you have two choices here. 
+                    <ul>
+                       <li>If you believe your script contains no dangerous code or security breach, you can request DBA manual validation right now. </li>
+                       <li>Otherwise, if you feel your script may contains inappropriate contents, you can terminate this request by clicking 'Abort request' button below; and after you fixed 
+                    your script, you can create a new request and re-upload updated scripts. </li>
+                    </ul>
+                    <button onclick="showDbaManualValidationConfirmation()" id="btn_request_dba_validation" class="btn_ok">Request DBA Manual Validation</button> 
+                    <button onclick="showDbaValidationNoThanks()" id="btn_no_dba_validation_and_abort" class="btn_no">Abort Request</button> 
+                  </div>
+
+                  <p id="dba_overwrite_confirm" class="hide">
+                     Are you sure you want to request DBAs to manually validate your scripts? If so, please confirm and click "OK" button below. Otherwise if you hit it by mistake, please click 
+                     the cancel button below. <br /><br />
+                    <button onclick="kickOffDbaManualValidation(@st.TicketId)" class="btn_ok">OK</button> 
+                    <button onclick="cancelOverwriteConfirmAndBackToDecision()" class="btn_no">Cancel</button> 
+                  </p>
+
+                  <p id="dba_overwrite_nope" class="hide">
+                     Are you sure want to canel the DBA manual validation request, <b>AND</b> terminate current request? <br /><br />
+                    <button onclick="noDbaValidationAndTerminateFlow(@st.TicketId)" class="btn_ok">OK</button> 
+                    <button onclick="cancelTerminateRequestAndBackToDecision()" class="btn_no">Cancel</button> 
+                  </p>
+              </div>
+              return; 
+          }
+           
+          @* all other actions needs valid approver role *@
+          if (!isValidApprover && !isOwner)
+          { 
+            <div class="@PickClass( @st.Category) " >@st.Name</div>  
+            if( st.Code != lastStateCode) { <img src="@url.Content("~/Content/img/arrow_down.png")" class="arrow_right" alt="" /> }
+            return; 
+          } 
+          <img src="@url.Content( "~/Content/img/diamond.png" )" alt="" class="diamond" />
+          if( st.Code == FlowState.StageWaitForPush.Code) {
+              <div class="@PickClass( @st.Category)" >
+                  <p id="push_to_stage_menu">
+                    <button onclick="showPushToStageConfirmation()" class="btn_ok">Push to stage</button> 
+                    <button onclick="showStageAbortConfirmation()" class="btn_no">Abort request</button> 
+                  </p>
+                  
+                  <p id="stage_push" class="hide">
+                    Are you sure you want to push target script to staging environment? If you hit it by mistake, please click cancel button.  <br />
+                    <button id="btn_push_to_stage" class="btn_ok" value="pushstage" name="pushScript">OK</button> <button id="btn_cancel_push_to_stage" onclick="cancelPushToStage()" class="btn_no">Cancel</button>
+                  </p>
+
+                  <p id="stage_abort" class="hide">
+                    Are you sure you want to abort this request? Rollback script won't be executed! <br />
+                    <button id="btn_stage_abort" onclick="stageAbort(@st.TicketId)" class="btn_ok">OK</button> <button id="btn_cancel_stage_abort" onclick="cancelStageAbort()" class="btn_no">Cancel</button>                                     
+                  </p>
+              </div>
+          }else if ( st.Code == FlowState.ProductWaitForPush.Code ) { 
+              <div class="@PickClass( @st.Category) " >
+                  <p id="push_prod_menu">
+                    <button onclick="showPushToProdInfo()" class="btn_ok">Push to production</button> 
+                    <button onclick="showProdUserAbortInfo()" class="btn_no">Abort request</button> 
+                  </p>
+
+                  <p id="prod_push" class="hide">
+                    Are you sure you want to push target script to staging environment? If you hit it by mistake, please click cancel button.  <br />
+                    <button id="btn_push_to_prod" class="btn_ok" value="pushprod" name="pushScript">OK</button> <button id="btn_cancel_push_to_prod" onclick="cancelPushToProd()" class="btn_no" >Cancel</button>                                     
+
+                  </p>
+
+                  <p id="prod_abort" class="hide">
+                    Are you sure you want to abort this request? Robllback script won't be executed, and changes you've made to STAGING environment will still be there! <br />
+                    <button id="btn_prod_abort" onclick="prodAbort(@st.TicketId)" class="btn_ok">OK</button> <button id="btn_cancel_prod_abort" onclick="cancelProdAbort()" class="btn_no">Cancel</button>                                     
+                  </p>
+              </div>
+          }else if ( st.Code == FlowState.StageExecutionValidationWaiting.Code )  { 
+              <div class="@PickClass( @st.Category) " >
+                  <p id="stage_confirm_menu">
+                    <button onclick="showStageConfirmInfo()" class="btn_ok">Confirmed</button> 
+                    <button onclick="showStageRejectAndRollbackInfo()" class="btn_no">Reject & Rollback</button> 
+                  </p>
+
+                  <p id="stage_confirm" class="hide">
+                    Please confirm that script is successfully executed in staging environment without issues, you may need to check the exeuction log, and manually validate the staging environment, etc. <br />
+                    If you are not sure about it, or need more time, click cancel button. <br />
+                    <button id="btn_stage_confirm" onclick="stageConfirm(@st.TicketId)" class="btn_ok">OK</button> <button id="btn_cancel_stage_cofirm" onclick="cancelStageConfirm()" class="btn_no">Cancel</button>                                     
+                  </p>
+
+                  <p id="stage_reject_rollback" class="hide">
+                    Are you sure you want to reject the staginge exeuction results? The rollback script provided by you will be executed after you click OK button and workflow will be terminated. <br />
+                    If you are not so sure, or hit this button by mistake, please click Cancel button. <br />
+                    <button id="btn_stage_reject" onclick="stageRejectAndRollback(@st.TicketId)" class="btn_ok">OK</button> <button id="btn_cancel_stage_reject" onclick="cancelStageReject()" class="btn_no" >Cancel</button>
+                  </p>
+               </div>
+          } else if ( st.Code == FlowState.ProductExeuctionValidationWaiting.Code ) { 
+               <div class="@PickClass( @st.Category) " >
+                  <p id="prod_confirm_menu">
+                    <button onclick="showProdConfirmInfo()" class="btn_ok">Confirmed</button> 
+                    <button onclick="showProdRejectAndRollbackInfo()" class="btn_no">Reject & Rollback</button> 
+                  </p>
+
+                  <p id="prod_confirm" class="hide">
+                    Please confirm that script is successfully executed in PRODUCTION environment without any issue, you may need to check the exeuction log, see into 'Raw Logs' tab. <br />
+                    If you are not sure about it, or need more time, click cancel button. <br />
+                    @*<button id="btn_prod_confirm" value="prodconfirm" name="pushScript" class="btn_ok">OK</button>*@
+                      <button id="btn_prod_confirm" onclick="prodConfirm(@st.TicketId)" class="btn_ok">OK</button> <button id="btn_cancel_prod_cofirm" onclick="cancelProdConfirm()" class="btn_no" >Cancel</button>                                     
+                  </p>
+
+                  <p id="prod_reject_rollback" class="hide">
+                    The rollback script provided by you will be executed in PRODUCTION environment once you click OK button and workflow will be terminated. <br />
+                    If you are not so sure, or hit this button by mistake, please click Cancel button. <br />
+                    <button id="btn_prod_reject" value="prodreject" name="pushScript" class="btn_ok">OK</button> <button id="btn_cancel_prod_reject" onclick="cancelProdReject()" class="btn_no" >Cancel</button>                                     
+                  </p>
+               </div>           
+          }
+      } @* NOTE: if not the last action, we can ignore it... save one else here *@
+}else if ( st.Category == StateCategory.TransientState) {
+
+    @* only display transient state if it is the last one *@
+    if (st.Code == lastStateCode)
+    {
+        <div class="@PickClass( @st.Category) ">
+            @st.Name <hr />
+        @if (st.Code == FlowState.DBAOverwriteRequested.Code) {
+            @* 
+                And now we have to distinguish DBA and normal requester/approver. Here's one caveat, that some DBA may be assigned to certain team as team member and hence 
+                has the rights to prove his/her own scripts manually. Per the discussion with Erin and Benito, DBA team member have super power on validation process, they 
+                should in theory know what should and should not be done, so we will allow that for now. May change it upon new request.
+            *@
+            if (isDba) { 
+                @* Display the approve or reject button here, main logic is handled in ajax call back. *@
+                <form id="dba_decision">
+                    <label for="validation_comments">Comments for Approval/Rejection:<textarea name="comment" cols="70"  rows="3"></textarea> </label>
+                        <button id="btn_dba_approve" onclick="dba_approve(@st.TicketId)" class="btn_ok">Approve</button>
+                        <button id="btn_dba_reject" onclick="dba_reject(@st.TicketId)" class="btn_no">Reject</button>
+                </form>
+             
+            } else {   
+                @* now treate validation request state a bit differently, since it may take long time, user should not refresh just after short period of time. *@
+                <text>DBAs are informed to start manual validation process, which may take 48 business hours to approve / reject the request. A notification email will be sent to you upon DBA’s decision.<br /> <br /></text>
+            } @* end dba checking *@
+            
+        } else {
+            <text>Please wait for some time and click the button to refresh the execution status.<button id="btn_refresh" onclick="getScriptStatus(@st.TicketId)" class="btn_ok">Get execution status</button></text>
+        } @* end all other trancient code check *@
+
+        </div>
+    } @* end last status code checking *@  
+     
+} else { 
+     @* for general success and failure statesd *@
+    <div class="@PickClass( @st.Category) " >@st.Name</div> 
+    if( st.Code != lastStateCode) { <img src="@url.Content("~/Content/img/arrow_down.png")" class="arrow_right" alt="" /> }
+  }
+} 
+
+@helper LogMessageDecorator( WorkState w) { 
+  var logMessage = w.LogMessage;
+
+  if (String.IsNullOrEmpty(logMessage)) { return ; }  
+
+  @* let's check if it is a raw string or JSON string, following checking is not complete, but should be sufficient for our app *@
+  if( (logMessage.StartsWith("\"") && logMessage.EndsWith("\"") ) 
+    || (logMessage.StartsWith("{") && logMessage.EndsWith("}"))
+    || (logMessage.Contains("[") && logMessage.EndsWith("]")) ) {
+      if (logMessage.Contains("\"Type\":\"ProcessInfoLog\""))
+      {
+          var plog = ProcessInfoLog.LoadFromJson(logMessage);
+          if( @plog.Description != null ) { <strong>Description:</strong> @plog.Description <br />} 
+          <text>
+            <strong>Authorized by: </strong>@plog.AuthorizedBy <br />
+            <strong>Log File: </strong> @plog.LogFile ( @plog.LogFileSize bytes) <a href="/Download/LogFile/@w.TicketId?log=@plog.LogFile" >Download</a> <br />
+            <strong>Execution Duration:  </strong>@plog.TotalProcessorTime.TotalMilliseconds ms <br />
+            <strong>Execution Start:  </strong>@plog.StartTime  <br />
+            <strong>Execution End:  </strong>@plog.EndTime  <br />
+            <strong>Database Server:  </strong>@plog.DBServer  <br />
+            <strong>Database Name:  </strong>@plog.DBName  <br />
+          </text> 
+      }
+      else if (logMessage.Contains("\"Type\":\"ExecutionInitiateLog\""))
+      {
+          var elog = ExecutionInitiateLog.LoadFromJson(logMessage);
+          if( @elog.Description != null ) { <strong>Description:</strong> @elog.Description <br />} 
+          <text>
+            <strong>Authorized by: </strong>@elog.AuthorizedBy <br />
+            <strong>Execution Start:  </strong>@elog.StartTime  <br />
+            <strong>Database Server:  </strong>@elog.DBServer  <br />
+            <strong>Database Name:  </strong>@elog.DBName  <br />
+          </text> 
+      }
+  } else { 
+    <text>@logMessage</text>
+  }
+}
